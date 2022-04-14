@@ -1,2 +1,7 @@
 # Design e Desenvolvimento de Banco de Dados
-Esse repositório é dedicado a certas atividades do professor Abrantes Araújo Silva Filho de Design e Desenvolvimento de Banco de Dados durante o primeiro bimestre do primeiro período de Sistemas de Informação na UVV. 
+#### Aluno: Natan Depes Bilharinho
+#### Professor:  Abrantes Araújo Silva Filho
+#### Monitora: Suelen
+
+## Este repositório
+É dedicado a certas atividades da matéria de Design e Desenvolvimento de Banco de Dados durante o primeiro bimestre do primeiro período de Sistemas de Informação na UVV. 
