@@ -19,7 +19,7 @@ CREATE TABLE funcionario (
                 endereco VARCHAR(30),
                 sexo CHAR(1),
                 salario DECIMAL(10,2),
-                cpf_supervisor CHAR(11) NOT NULL,
+                cpf_supervisor CHAR(11),
                 numero_departamento INT NOT NULL,
                 PRIMARY KEY (cpf)
 );
@@ -42,7 +42,7 @@ ALTER TABLE funcionario MODIFY COLUMN sexo CHAR(1) COMMENT 'Sexo do funcionário
 
 ALTER TABLE funcionario MODIFY COLUMN salario DECIMAL(10, 2) COMMENT 'Salário do funcionário.';
 
-ALTER TABLE funcionario MODIFY COLUMN cpf_supervisor CHAR(11) COMMENT 'CPF do supervisor. Será uma FK.';
+ALTER TABLE funcionario MODIFY COLUMN cpf_supervisor CHAR(11) COMMENT 'CPF do supervisor, será uma FK da própia tabela.';
 
 ALTER TABLE funcionario MODIFY COLUMN numero_departamento INTEGER COMMENT 'Número do departamento do funcionário.';
 
@@ -61,7 +61,7 @@ ALTER TABLE departamento MODIFY COLUMN numero_departamento INTEGER COMMENT 'Núm
 
 ALTER TABLE departamento MODIFY COLUMN nome_departamento VARCHAR(15) COMMENT 'Nome do departamento. Deve ser único.';
 
-ALTER TABLE departamento MODIFY COLUMN cpf_gerente CHAR(11) COMMENT 'CPF do gerente do departamento. É uma FK.';
+ALTER TABLE departamento MODIFY COLUMN cpf_gerente CHAR(11) COMMENT 'CPF do gerente do departamento. Será uma FK.';
 
 ALTER TABLE departamento MODIFY COLUMN data_inicio_gerente DATE COMMENT 'Data do início do gerente no departamento.';
 
@@ -123,19 +123,19 @@ ALTER TABLE trabalha_em MODIFY COLUMN horas DECIMAL(3, 1) COMMENT 'Horas trabalh
 
 
 CREATE TABLE dependente (
-                cpf_funcionario_ CHAR(11) NOT NULL,
                 nome_dependente VARCHAR(15) NOT NULL,
+                cpf CHAR(11) NOT NULL,
                 sexo CHAR(1),
                 data_nascimento DATE,
                 parentesco VARCHAR(15),
-                PRIMARY KEY (cpf_funcionario_, nome_dependente)
+                PRIMARY KEY (nome_dependente, cpf)
 );
 
 ALTER TABLE dependente COMMENT 'Tabela que armazena as informações dos dependentes dos funcionários.';
 
-ALTER TABLE dependente MODIFY COLUMN cpf_funcionario_ CHAR(11) COMMENT 'CPF do funcionário. É PK e FK.';
-
 ALTER TABLE dependente MODIFY COLUMN nome_dependente VARCHAR(15) COMMENT 'Nome do dependente. Faz parte da PK desta tabela.';
+
+ALTER TABLE dependente MODIFY COLUMN cpf CHAR(11) COMMENT 'CPF do funcionário. Será a PK da tabela.';
 
 ALTER TABLE dependente MODIFY COLUMN sexo CHAR(1) COMMENT 'Sexo do dependente.';
 
@@ -151,7 +151,7 @@ ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
 ALTER TABLE dependente ADD CONSTRAINT funcionario_dependente_fk
-FOREIGN KEY (cpf_funcionario_)
+FOREIGN KEY (cpf)
 REFERENCES funcionario (cpf)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
