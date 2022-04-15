@@ -144,8 +144,6 @@ ALTER TABLE dependente MODIFY COLUMN data_nascimento DATE COMMENT 'Data de nasci
 
 ALTER TABLE dependente MODIFY COLUMN parentesco VARCHAR(15) COMMENT 'Descrição do parentesco do dependente com o funcionário.';
 
-SELECT *, DATE_FORMAT (`data_nascimento`,'%d-%m às %Hh%i') as `data_nascimento` FROM `funcionario`;
-
 ALTER TABLE funcionario ADD CONSTRAINT funcionario_funcionario_fk
 FOREIGN KEY (cpf_supervisor)
 REFERENCES funcionario (cpf)
@@ -189,5 +187,5 @@ ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
 INSERT INTO funcionario VALUES(
-"88866555576", "Jorge", "E", "Brito", "10-11-1937", "Rua do Horto. 35. Sao Paulo. SP", "M", 55.00000, null, 1
+"88866555576", "Jorge", "E", "Brito", "1937-11-10", "Rua do Horto. 35. Sao Paulo. SP", "M", 55.00000, null, 1
 );
