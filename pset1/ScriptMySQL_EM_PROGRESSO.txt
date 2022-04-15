@@ -185,3 +185,7 @@ FOREIGN KEY (numero_projeto)
 REFERENCES projeto (numero_projeto)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
+
+INSERT INTO uvv VALUES(
+12345678966, "João", "B", "Silva", 09-01-1965, "Rua das Flores. 751. São Paulo. SP", "M", 30.00000, 33344555587, 5
+);
