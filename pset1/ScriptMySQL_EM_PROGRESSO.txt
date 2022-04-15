@@ -195,25 +195,25 @@ INSERT INTO funcionario VALUES(
 );
 
 INSERT INTO funcionario VALUES(
-"33344555587", "Fernando", "T", "Wong", "1955-12-08", "Rua da Lapa. 34. Sao Paulo. SP", "M", 40.00000, "88866555576", 5
+"33344555587", "Fernando", "T", "Wong", "1955-12-08", "Rua da Lapa. 34. Sao Paulo. SP", "M", 4000000, "88866555576", 5
 );
 
 INSERT INTO funcionario VALUES(
-"99988777767", "Alice", "J", "Zelaya", "1968-01-19", "Rua Souza Lima. 35. Curitiba. PR", "F", 25.00000, "98765432168", 4
+"99988777767", "Alice", "J", "Zelaya", "1968-01-19", "Rua Souza Lima. 35. Curitiba. PR", "F", 2500000, "98765432168", 4
 );
 
 INSERT INTO funcionario VALUES(
-"98798798733", "Andre", "V", "Pereira", "1969-03-29", "Rua Timbira 35. Sao Paulo. SP", "M", 25.00000, "98765432168", 4
+"98798798733", "Andre", "V", "Pereira", "1969-03-29", "Rua Timbira 35. Sao Paulo. SP", "M", 2500000, "98765432168", 4
 );
 
 INSERT INTO funcionario VALUES(
-"12345678966", "Joao", "B", "Silva", "1965-01-09", "Rua das Flores. 751. Sao Paulo. SP", "M", 30.00000, "33344555587", 5
+"12345678966", "Joao", "B", "Silva", "1965-01-09", "Rua das Flores. 751. Sao Paulo. SP", "M", 3000000, "33344555587", 5
 );
 
 INSERT INTO funcionario VALUES(
-"66688444476", "Ronaldo", "K", "Lima", "1962-09-15", "Rua Reboucas. 65. Piracicaba. SP", "M", 38.00000, "33344555587", 5
+"66688444476", "Ronaldo", "K", "Lima", "1962-09-15", "Rua Reboucas. 65. Piracicaba. SP", "M", 3800000, "33344555587", 5
 );
 
 INSERT INTO funcionario VALUES(
-"45345345376", "Joice", "A", "Leite", "1972-07-31", "Av Lucas Obes. 74. Sao Paulo. SP", "F", 25.00000, "33344555587", 5
+"45345345376", "Joice", "A", "Leite", "1972-07-31", "Av Lucas Obes. 74. Sao Paulo. SP", "F", 2500000, "33344555587", 5
 );
