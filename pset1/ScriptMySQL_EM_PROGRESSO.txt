@@ -187,5 +187,5 @@ ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
 INSERT INTO funcionario VALUES(
-12345678966, "João", "B", "Silva", 1965-01-09, "Rua das Flores. 751. São Paulo. SP", "M", 30.00000, 33344555587, 5
+12345678966, "João", "B", "Silva", "1965-01-09", "Rua das Flores. 751. São Paulo. SP", "M", 30.00000, 33344555587, 5
 );
