@@ -16,7 +16,7 @@ CREATE TABLE funcionario (
                 nome_meio CHAR(1),
                 ultimo_nome VARCHAR(15) NOT NULL,
                 data_nascimento DATE,
-                endereco VARCHAR(60),
+                endereco VARCHAR(100),
                 sexo CHAR(1),
                 salario DECIMAL(10,2),
                 cpf_supervisor CHAR(11),
@@ -187,5 +187,5 @@ ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
 INSERT INTO funcionario VALUES(
-12345678966, "Joao", "B", "Silva", "1965-01-09", "Rua das Flores_751_Sao paulo_SP", "M", 30.00000, 33344555587, 5
+12345678966, "Joao", "B", "Silva", "1965-01-09", "Rua das Flores. 751. Sao paulo. SP", "M", 30.00000, 33344555587, 5
 );
