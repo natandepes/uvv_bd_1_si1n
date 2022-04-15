@@ -16,7 +16,7 @@ CREATE TABLE funcionario (
                 nome_meio CHAR(1),
                 ultimo_nome VARCHAR(15) NOT NULL,
                 data_nascimento DATE,
-                endereco VARCHAR(50),
+                endereco VARCHAR(60),
                 sexo CHAR(1),
                 salario DECIMAL(10,2),
                 cpf_supervisor CHAR(11),
