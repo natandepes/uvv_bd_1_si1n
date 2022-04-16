@@ -229,3 +229,23 @@ INSERT INTO departamento VALUES(
 INSERT INTO departamento VALUES(
 1, "Matriz", "88866555576", "1981-06-19"
 );
+
+INSERT INTO localizacoes_departamento VALUES(
+1, "Sao Paulo"
+);
+
+INSERT INTO localizacoes_departamento VALUES(
+4, "Maua"
+);
+
+INSERT INTO localizacoes_departamento VALUES(
+5, "Santo Andre"
+);
+
+INSERT INTO localizacoes_departamento VALUES(
+5, "Itu"
+);
+
+INSERT INTO localizacoes_departamento VALUES(
+5, "Sao Paulo"
+);
