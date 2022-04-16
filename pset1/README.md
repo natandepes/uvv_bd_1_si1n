@@ -1,4 +1,4 @@
-# Subdiretório Pset 1
+# Subdiretório PSet 1
 
 ## Para que serve o subdiretório?
 A sua função é de dividir as atividades realizadas no repositório correspondente, por exemplo, o pset1 é o subdiretório da minha atividade de banco de dados do primeiro período, que será devidamente preenchido com os dados dessa atividade, se eu quiser ou precisar usar esse repositório para realizar outra atividade, basta eu criar outro subdiretório para a atividade  específica. Em suma, sua função é dividir e organizar o repositório. 
