@@ -217,3 +217,15 @@ INSERT INTO funcionario VALUES(
 INSERT INTO funcionario VALUES(
 "45345345376", "Joice", "A", "Leite", "1972-07-31", "Av Lucas Obes. 74. Sao Paulo. SP", "F", 25000, "33344555587", 5
 );
+
+INSERT INTO departamento VALUES(
+5, "Pesquisa", "33344555587", "1988-05-22"
+);
+
+INSERT INTO departamento VALUES(
+4, "Administracao", "98765432168", "1995-01-01"
+);
+
+INSERT INTO departamento VALUES(
+1, "Matriz", "88866555576", "1981-06-19"
+);
