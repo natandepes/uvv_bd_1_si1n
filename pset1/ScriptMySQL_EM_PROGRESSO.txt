@@ -124,8 +124,8 @@ ALTER TABLE trabalha_em MODIFY COLUMN horas DECIMAL(3, 1) COMMENT 'Horas trabalh
 
 
 CREATE TABLE dependente (
+                cpf_funcionario CHAR(11) NOT NULL,
                 nome_dependente VARCHAR(15) NOT NULL,
-                cpf CHAR(11) NOT NULL,
                 sexo CHAR(1),
                 data_nascimento DATE,
                 parentesco VARCHAR(15),
@@ -134,9 +134,9 @@ CREATE TABLE dependente (
 
 ALTER TABLE dependente COMMENT 'Tabela que armazena as informações dos dependentes dos funcionários.';
 
-ALTER TABLE dependente MODIFY COLUMN nome_dependente VARCHAR(15) NOT NULL COMMENT 'Nome do dependente. Faz parte da PK desta tabela.';
+ALTER TABLE dependente MODIFY COLUMN cpf_funcionario CHAR(11) NOT NULL COMMENT 'CPF do funcionário. Será a PK da tabela.';
 
-ALTER TABLE dependente MODIFY COLUMN cpf CHAR(11) NOT NULL COMMENT 'CPF do funcionário. Será a PK da tabela.';
+ALTER TABLE dependente MODIFY COLUMN nome_dependente VARCHAR(15) NOT NULL COMMENT 'Nome do dependente. Faz parte da PK desta tabela.';
 
 ALTER TABLE dependente MODIFY COLUMN sexo CHAR(1) COMMENT 'Sexo do dependente.';
 
