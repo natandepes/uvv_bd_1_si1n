@@ -110,7 +110,7 @@ CREATE UNIQUE INDEX idx_nome_projeto
 CREATE TABLE trabalha_em (
                 cpf_funcionario CHAR(11) NOT NULL,
                 numero_projeto INT NOT NULL,
-                horas DECIMAL(3,1) NOT NULL,
+                horas DECIMAL(3,1),
                 PRIMARY KEY (cpf_funcionario, numero_projeto)
 );
 
@@ -120,7 +120,7 @@ ALTER TABLE trabalha_em MODIFY COLUMN cpf_funcionario CHAR(11) NOT NULL COMMENT 
 
 ALTER TABLE trabalha_em MODIFY COLUMN numero_projeto INTEGER NOT NULL COMMENT 'Número do projeto. É PK e FK.';
 
-ALTER TABLE trabalha_em MODIFY COLUMN horas DECIMAL(3, 1) NOT NULL COMMENT 'Horas trabalhadas pelo funcionário neste projeto.';
+ALTER TABLE trabalha_em MODIFY COLUMN horas DECIMAL(3, 1) COMMENT 'Horas trabalhadas pelo funcionário neste projeto.';
 
 
 CREATE TABLE dependente (
