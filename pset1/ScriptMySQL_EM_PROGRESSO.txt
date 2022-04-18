@@ -129,7 +129,7 @@ CREATE TABLE dependente (
                 sexo CHAR(1),
                 data_nascimento DATE,
                 parentesco VARCHAR(15),
-                PRIMARY KEY (nome_dependente, cpf)
+                PRIMARY KEY (nome_dependente, cpf_funcionario)
 );
 
 ALTER TABLE dependente COMMENT 'Tabela que armazena as informações dos dependentes dos funcionários.';
