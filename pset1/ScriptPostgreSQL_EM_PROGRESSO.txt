@@ -1,3 +1,5 @@
+CREATE USER natan WITH SUPERUSER;
+
 CREATE TABLE elmasri.funcionario (
                 cpf CHAR(11) NOT NULL,
                 primeiro_nome VARCHAR(15) NOT NULL,
