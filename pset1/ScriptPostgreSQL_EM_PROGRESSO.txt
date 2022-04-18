@@ -15,6 +15,9 @@ LC_COLLATE = 'pt_BR.UTF-8'
 LC_CTYPE = 'pt_BR.UTF-8'
 ALLOW_CONNECTIONS = true;
 
+CREATE SCHEMA elmasri
+    AUTHORIZATION natan;
+
 CREATE TABLE elmasri.funcionario (
                 cpf CHAR(11) NOT NULL,
                 primeiro_nome VARCHAR(15) NOT NULL,
