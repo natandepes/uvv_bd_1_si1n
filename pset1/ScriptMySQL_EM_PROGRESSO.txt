@@ -151,7 +151,7 @@ ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
 ALTER TABLE dependente ADD CONSTRAINT funcionario_dependente_fk
-FOREIGN KEY (cpf)
+FOREIGN KEY (cpf_funcionario)
 REFERENCES funcionario (cpf)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
