@@ -1,11 +1,3 @@
-- comentar que teve que reduzir o comentario das seguinte secoes pois ultrapassava o limite do MySQL:
-funcionario.cpf_supervisor
-dependente.cpf_funcionario
-trabalha_em.cpf_funcionario
-trabalha_em.numero_projeto
-departamento.cpf_gerente
-localizacoes_departamento.numero_departamento
-
 CREATE DATABASE uvv;
 
 USE uvv;
