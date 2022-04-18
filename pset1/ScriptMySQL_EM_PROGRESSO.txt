@@ -275,31 +275,31 @@ INSERT INTO projeto VALUES(
 );
 
 INSERT INTO dependente VALUES(
-"Alicia", "33344555587", "F", "1986-04-05", "Filha"
+"33344555587", "Alicia", "F", "1986-04-05", "Filha"
 );
 
 INSERT INTO dependente VALUES(
-"Tiago", "33344555587", "M", "1983-10-25", "Filho"
+"33344555587", "Tiago", "M", "1983-10-25", "Filho"
 );
 
 INSERT INTO dependente VALUES(
-"Janaina", "33344555587", "F", "1958-05-03", "Esposa"
+"33344555587", "Janaina", "F", "1958-05-03", "Esposa"
 );
 
 INSERT INTO dependente VALUES(
-"Antonio", "98765432168", "M", "1942-02-28", "Marido"
+"98765432168", "Antonio", "M", "1942-02-28", "Marido"
 );
 
 INSERT INTO dependente VALUES(
-"Michael", "12345678966", "M", "1988-01-04", "Filho"
+"12345678966", "Michael", "M", "1988-01-04", "Filho"
 );
 
 INSERT INTO dependente VALUES(
-"Alicia", "12345678966", "F", "1988-12-30", "Filha"
+"12345678966", "Alicia", "F", "1988-12-30", "Filha"
 );
 
 INSERT INTO dependente VALUES(
-"Elizabeth", "12345678966", "F", "1967-05-05", "Esposa"
+"12345678966", "Elizabeth", "F", "1967-05-05", "Esposa"
 );
 
 INSERT INTO trabalha_em VALUES(
