@@ -18,6 +18,9 @@ ALLOW_CONNECTIONS = true;
 CREATE SCHEMA elmasri
     AUTHORIZATION natan;
 
+ALTER USER natan
+SET SEARCH_PATH TO elmasri, "$user", public;
+
 CREATE TABLE elmasri.funcionario (
                 cpf CHAR(11) NOT NULL,
                 primeiro_nome VARCHAR(15) NOT NULL,
