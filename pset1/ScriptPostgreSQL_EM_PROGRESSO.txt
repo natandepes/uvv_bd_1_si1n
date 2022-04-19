@@ -19,6 +19,7 @@ ALTER USER natan
 SET SEARCH_PATH TO elmasri, "$user", public;
 
 
+
 CREATE SCHEMA elmasri
     AUTHORIZATION natan;
 
@@ -47,6 +48,10 @@ COMMENT ON COLUMN elmasri.funcionario.salario IS 'Salario do funcionario.';
 COMMENT ON COLUMN elmasri.funcionario.cpf_supervisor IS 'CPF do supervisor, FK para a própria tabela (um auto-relacionamento).';
 COMMENT ON COLUMN elmasri.funcionario.numero_departamento IS 'Numero do departamento do funcionario.';
 
+ALTER TABLE elmasri.funcionario ADD CONSTRAINT sex CHECK (sexo='M' OR sexo='F');
+ALTER TABLE elmasri.funcionario ADD CONSTRAINT salario_positivo CHECK (salario > -1);
+ALTER TABLE elmasri.funcionario ADD CONSTRAINT num_dep CHECK (numero_departamento > 0);
+ALTER TABLE elmasri.funcionario ADD CONSTRAINT data CHECK (data_nascimento BETWEEN '1933-01-01' AND '2004-01-01');
 
 CREATE TABLE elmasri.departamento (
                 numero_departamento INTEGER NOT NULL,
@@ -61,6 +66,8 @@ COMMENT ON COLUMN elmasri.departamento.nome_departamento IS 'Nome do departament
 COMMENT ON COLUMN elmasri.departamento.cpf_gerente IS 'CPF do gerente do departamento, FK para a tabela funcionario.';
 COMMENT ON COLUMN elmasri.departamento.data_inicio_gerente IS 'Data do inicio do gerente no departamento.';
 
+ALTER TABLE departamento ADD CONSTRAINT num_dep2 CHECK (numero_departamento > 0);
+ALTER TABLE departamento ADD CONSTRAINT data_gerente CHECK (data_inicio_gerente BETWEEN '1981-06-18' AND '2023-01-01');
 
 CREATE UNIQUE INDEX idx_nome_departamento
  ON elmasri.departamento
@@ -89,6 +96,7 @@ COMMENT ON COLUMN elmasri.projeto.nome_projeto IS 'Nome do projeto. Deve ser uni
 COMMENT ON COLUMN elmasri.projeto.local_projeto IS 'Localizacao do projeto.';
 COMMENT ON COLUMN elmasri.projeto.numero_departamento IS 'Numero do departamento. E uma FK para a tabela departamento.';
 
+ALTER TABLE elmasri.projeto ADD CONSTRAINT num_proj CHECK (numero_projeto > 0);
 
 CREATE UNIQUE INDEX idx_nome_projeto
  ON elmasri.projeto
@@ -105,6 +113,7 @@ COMMENT ON COLUMN elmasri.trabalha_em.cpf_funcionario IS 'CPF do funcionario. Fa
 COMMENT ON COLUMN elmasri.trabalha_em.numero_projeto IS 'Número do projeto. Faz parte da PK desta tabela, e tambem uma FK para a tabela projeto.';
 COMMENT ON COLUMN elmasri.trabalha_em.horas IS 'Horas trabalhadas pelo funcionario neste projeto.';
 
+ALTER TABLE elmasri.trabalha_em ADD CONSTRAINT hora_projeto CHECK (horas > -1);
 
 CREATE TABLE elmasri.dependente (
                 cpf_funcionario CHAR(11) NOT NULL,
@@ -121,6 +130,8 @@ COMMENT ON COLUMN elmasri.dependente.sexo IS 'Sexo do dependente.';
 COMMENT ON COLUMN elmasri.dependente.data_nascimento IS 'Data de nascimento do dependente.';
 COMMENT ON COLUMN elmasri.dependente.parentesco IS 'Descrição do parentesco do dependente com o funcionario.';
 
+ALTER TABLE elmasri.dependente ADD CONSTRAINT sex_dep CHECK (sexo='M' OR sexo='F');
+ALTER TABLE elmasri.dependente ADD CONSTRAINT data_dep CHECK (data_nascimento BETWEEN '1928-01-01' AND '2004-01-01');
 
 ALTER TABLE elmasri.funcionario ADD CONSTRAINT funcionario_funcionario_fk
 FOREIGN KEY (cpf_supervisor)
