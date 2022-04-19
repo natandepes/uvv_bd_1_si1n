@@ -229,7 +229,7 @@ INSERT INTO projeto VALUES
 (3, 'ProdutoZ', 'Sao Paulo', 5);
 
 INSERT INTO projeto VALUES
-(10, "Informatizacao", "Maua", 4);
+(10, 'Informatizacao', 'Maua', 4);
 
 INSERT INTO projeto VALUES
 (20, 'Reorganizacao', 'Sao Paulo', 1);
