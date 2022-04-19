@@ -71,7 +71,7 @@ ALTER TABLE departamento MODIFY COLUMN data_inicio_gerente DATE COMMENT 'Data do
 
 ALTER TABLE departamento ADD CONSTRAINT CHECK (numero_departamento > 0);
 
-ALTER TABLE departamento ADD CONSTRAINT CHECK (data_inicio_gerente BETWEEN '1981-06-18' AND '2023-01-01');
+ALTER TABLE departamento ADD CONSTRAINT CHECK (data_inicio_gerente BETWEEN "1981-06-18" AND "2023-01-01");
 
 CREATE UNIQUE INDEX idx_nome_departamento
  ON departamento
