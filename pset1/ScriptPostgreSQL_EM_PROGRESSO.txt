@@ -170,3 +170,138 @@ REFERENCES elmasri.projeto (numero_projeto)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
+
+INSERT INTO funcionario VALUES
+('88866555576', 'Jorge', 'E', 'Brito', '1937-11-10', 'Rua do Horto. 35. Sao Paulo. SP', 'M', 55000, null, 1);
+
+INSERT INTO funcionario VALUES
+('98765432168', 'Jennifer', 'S', 'Souza', '1941-06-20', 'Av Arthur de Lima. 54. Santo Andre. SP', 'F', 43000, '88866555576', 4);
+
+INSERT INTO funcionario VALUES
+('33344555587', 'Fernando', 'T', 'Wong', '1955-12-08', 'Rua da Lapa. 34. Sao Paulo. SP', 'M', 40000, '88866555576', 5);
+
+INSERT INTO funcionario VALUES
+('99988777767', 'Alice', 'J', 'Zelaya', '1968-01-19', 'Rua Souza Lima. 35. Curitiba. PR', 'F', 25000, '98765432168', 4);
+
+INSERT INTO funcionario VALUES
+('98798798733', 'Andre', 'V', 'Pereira', '1969-03-29', 'Rua Timbira 35. Sao Paulo. SP', 'M', 25000, '98765432168', 4);
+
+INSERT INTO funcionario VALUES
+('12345678966', 'Joao', 'B', 'Silva', '1965-01-09', 'Rua das Flores. 751. Sao Paulo. SP', 'M', 30000, '33344555587', 5);
+
+INSERT INTO funcionario VALUES
+('66688444476', 'Ronaldo', 'K', 'Lima', '1962-09-15', 'Rua Reboucas. 65. Piracicaba. SP', 'M', 38000, '33344555587', 5);
+
+INSERT INTO funcionario VALUES
+('45345345376', 'Joice', 'A', 'Leite', '1972-07-31', 'Av Lucas Obes. 74. Sao Paulo. SP', 'F', 25000, '33344555587', 5);
+
+INSERT INTO departamento VALUES
+(5, 'Pesquisa', '33344555587', '1988-05-22');
+
+INSERT INTO departamento VALUES
+(4, 'Administracao', '98765432168', '1995-01-01');
+
+INSERT INTO departamento VALUES
+(1, 'Matriz', '88866555576', '1981-06-19');
+
+INSERT INTO localizacoes_departamento VALUES
+(1, 'Sao Paulo');
+
+INSERT INTO localizacoes_departamento VALUES
+(4, 'Maua');
+
+INSERT INTO localizacoes_departamento VALUES
+(5, 'Santo Andre');
+
+INSERT INTO localizacoes_departamento VALUES
+(5, 'Itu');
+
+INSERT INTO localizacoes_departamento VALUES
+(5, 'Sao Paulo');
+
+INSERT INTO projeto VALUES
+(1, 'ProdutoX', 'Santo Andre', 5);
+
+INSERT INTO projeto VALUES
+(2, 'ProdutoY', 'Itu', 5);
+
+INSERT INTO projeto VALUES
+(3, 'ProdutoZ', 'Sao Paulo', 5);
+
+INSERT INTO projeto VALUES
+(10, "Informatizacao", "Maua", 4);
+
+INSERT INTO projeto VALUES
+(20, 'Reorganizacao', 'Sao Paulo', 1);
+
+INSERT INTO projeto VALUES
+(30, 'Novosbeneficios', 'Maua', 4);
+
+INSERT INTO dependente VALUES
+('33344555587', 'Alicia', 'F', '1986-04-05', 'Filha');
+
+INSERT INTO dependente VALUES
+('33344555587', 'Tiago', 'M', '1983-10-25', 'Filho');
+
+INSERT INTO dependente VALUES
+('33344555587', 'Janaina', 'F', '1958-05-03', 'Esposa');
+
+INSERT INTO dependente VALUES
+('98765432168', 'Antonio', 'M', '1942-02-28', 'Marido');
+
+INSERT INTO dependente VALUES
+('12345678966', 'Michael', 'M', '1988-01-04', 'Filho');
+
+INSERT INTO dependente VALUES
+('12345678966', 'Alicia', 'F', '1988-12-30', 'Filha');
+
+INSERT INTO dependente VALUES
+('12345678966', 'Elizabeth', 'F', '1967-05-05', 'Esposa');
+
+INSERT INTO trabalha_em VALUES
+('12345678966', 1, 32.5);
+
+INSERT INTO trabalha_em VALUES
+('12345678966', 2, 7.5);
+
+INSERT INTO trabalha_em VALUES
+('66688444476', 3, 40.0);
+
+INSERT INTO trabalha_em VALUES
+('45345345376', 1, 20.0);
+
+INSERT INTO trabalha_em VALUES
+('45345345376', 2, 20.0);
+
+INSERT INTO trabalha_em VALUES
+('33344555587', 2, 10.0);
+
+INSERT INTO trabalha_em VALUES
+('33344555587', 3, 10.0);
+
+INSERT INTO trabalha_em VALUES
+('33344555587', 10, 10.0);
+
+INSERT INTO trabalha_em VALUES
+('33344555587', 20, 10.0);
+
+INSERT INTO trabalha_em VALUES
+('99988777767', 30, 30.0);
+
+INSERT INTO trabalha_em VALUES
+('99988777767', 10, 10.0);
+
+INSERT INTO trabalha_em VALUES
+('98798798733', 10, 35.0);
+
+INSERT INTO trabalha_em VALUES
+('98798798733', 30, 5.0);
+
+INSERT INTO trabalha_em VALUES
+('98765432168', 30, 20.0);
+
+INSERT INTO trabalha_em VALUES
+('98765432168', 20, 15.0);
+
+INSERT INTO trabalha_em VALUES
+('88866555576', 20, 00.0);
