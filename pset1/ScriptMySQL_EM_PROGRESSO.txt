@@ -4,8 +4,8 @@ CREATE DATABASE uvv;
 
 GRANT ALL PRIVILEGES ON uvv.* TO natan;
 
-USE uvv;
 
+USE uvv;
 
 CREATE TABLE funcionario (
                 cpf CHAR(11) NOT NULL,
