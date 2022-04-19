@@ -49,6 +49,8 @@ ALTER TABLE funcionario ADD CONSTRAINT CHECK (salario > -1);
 
 ALTER TABLE funcionario ADD CONSTRAINT CHECK (numero_departamento > 0);
 
+ALTER TABLE funcionario ADD CONSTRAINT CHECK (data_nascimento BETWEEN "1936-01-01" AND "2004-01-01");
+
 CREATE TABLE departamento (
                 numero_departamento INT NOT NULL,
                 nome_departamento VARCHAR(15) NOT NULL,
@@ -149,6 +151,8 @@ ALTER TABLE dependente MODIFY COLUMN data_nascimento DATE COMMENT 'Data de nasci
 ALTER TABLE dependente MODIFY COLUMN parentesco VARCHAR(15) COMMENT 'Descrição do parentesco do dependente com o funcionário.';
 
 ALTER TABLE dependente ADD CONSTRAINT CHECK (sexo="M" OR sexo="F");
+
+ALTER TABLE dependente ADD CONSTRAINT CHECK (data_nascimento BETWEEN "1923-01-01" AND "2004-01-01");
 
 ALTER TABLE funcionario ADD CONSTRAINT funcionario_funcionario_fk
 FOREIGN KEY (cpf_supervisor)
