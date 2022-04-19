@@ -39,6 +39,11 @@ ALTER TABLE funcionario MODIFY COLUMN cpf_supervisor CHAR(11) COMMENT 'CPF do su
 
 ALTER TABLE funcionario MODIFY COLUMN numero_departamento INTEGER NOT NULL COMMENT 'Número do departamento do funcionário.';
 
+ALTER TABLE funcionario ADD CONSTRAINT CHECK (sexo="M" OR sexo="F");
+
+ALTER TABLE funcionario ADD CONSTRAINT CHECK (salario > -1);
+
+ALTER TABLE funcionario ADD CONSTRAINT CHECK (numero_departamento > 0);
 
 CREATE TABLE departamento (
                 numero_departamento INT NOT NULL,
@@ -58,6 +63,7 @@ ALTER TABLE departamento MODIFY COLUMN cpf_gerente CHAR(11) NOT NULL COMMENT 'CP
 
 ALTER TABLE departamento MODIFY COLUMN data_inicio_gerente DATE COMMENT 'Data do início do gerente no departamento.';
 
+ALTER TABLE departamento ADD CONSTRAINT CHECK (numero_departamento > 0);
 
 CREATE UNIQUE INDEX idx_nome_departamento
  ON departamento
@@ -94,6 +100,7 @@ ALTER TABLE projeto MODIFY COLUMN local_projeto VARCHAR(15) COMMENT 'Localizaç�
 
 ALTER TABLE projeto MODIFY COLUMN numero_departamento INTEGER NOT NULL COMMENT 'Número do departamento. É uma FK para a tabela departamento.';
 
+ALTER TABLE projeto ADD CONSTRAINT CHECK (numero_projeto > 0);
 
 CREATE UNIQUE INDEX idx_nome_projeto
  ON projeto
@@ -114,6 +121,7 @@ ALTER TABLE trabalha_em MODIFY COLUMN numero_projeto INTEGER NOT NULL COMMENT 'N
 
 ALTER TABLE trabalha_em MODIFY COLUMN horas DECIMAL(3, 1) COMMENT 'Horas trabalhadas pelo funcionário neste projeto.';
 
+ALTER TABLE trabalha_em ADD CONSTRAINT CHECK (horas > -1);
 
 CREATE TABLE dependente (
                 cpf_funcionario CHAR(11) NOT NULL,
@@ -135,6 +143,8 @@ ALTER TABLE dependente MODIFY COLUMN sexo CHAR(1) COMMENT 'Sexo do dependente.';
 ALTER TABLE dependente MODIFY COLUMN data_nascimento DATE COMMENT 'Data de nascimento do dependente.';
 
 ALTER TABLE dependente MODIFY COLUMN parentesco VARCHAR(15) COMMENT 'Descrição do parentesco do dependente com o funcionário.';
+
+ALTER TABLE dependente ADD CONSTRAINT CHECK (sexo="M" OR sexo="F");
 
 ALTER TABLE funcionario ADD CONSTRAINT funcionario_funcionario_fk
 FOREIGN KEY (cpf_supervisor)
