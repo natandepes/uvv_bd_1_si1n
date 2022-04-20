@@ -1,0 +1,30 @@
+/* O Postgres nao aceita de jeito nenhum o uso do comando "\c <banco de dados> <user>;" (comando necessario para se conectar com outro usuario no mesmo ou em outro bd) */ 
+/* sem pedir a senha, mesmo que no "CREATE USER" eu usasse a caracteristica "NOLOGIN" ou nao usasse "PASSWORD/ENCRYPTED PASSWORD", ele pede a senha mesmo nao existindo, */
+/* obviamente dando erro. E se eu usar o user com senha junto ao resto do script, nao vai funcionar, ele nem te da a oportunidade de escrever a senha, e vai bugar todos */
+/* os outros comandos, entao dividi meu script em dois, a fim de nao  bugar todo meu codigo. SENHA DO USER: maria */
+ 
+DROP DATABASE IF EXISTS uvv;
+DROP USER IF EXISTS natan;
+
+CREATE USER natan WITH
+  LOGIN
+  NOSUPERUSER
+  INHERIT
+  CREATEDB
+  CREATEROLE
+  REPLICATION
+  ENCRYPTED PASSWORD 'maria';
+
+CREATE DATABASE uvv
+WITH OWNER = natan
+TEMPLATE = template0
+ENCODING = 'UTF8'
+LC_COLLATE = 'pt_BR.UTF-8'
+LC_CTYPE = 'pt_BR.UTF-8'
+ALLOW_CONNECTIONS = true;
+
+ALTER USER natan
+SET SEARCH_PATH TO elmasri, "$user", public;
+
+-- ATENCAO !!! SENHA: maria
+\c uvv natan;
