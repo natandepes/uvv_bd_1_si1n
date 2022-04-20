@@ -1,0 +1,13 @@
+/* O MySQL/MariaDB nao aceita de jeito nenhum o uso do comando "\r <banco de dados> <user>;" (comando necessario para se conectar com outro usuario no mesmo ou em outro bd) */ 
+/* sem pedir a senha, mesmo que no "CREATE USER" eu nao usasse o termo "IDENTIFIED BY", ele pede a senha mesmo nao existindo, obviamente dando erro. E se eu usar o user com */
+/* senha junto ao resto do script, nao vai funcionar, ele nem te da a oportunidade de escrever a senha, e vai bugar todos os outros comandos que vem apos, */
+/* entao dividi meu script em dois, a fim de nao  bugar todo meu codigo. SENHA DO USER: maria */
+
+CREATE USER natan IDENTIFIED BY 'maria';
+
+CREATE DATABASE uvv;
+
+GRANT CREATE, DELETE, UPDATE, INSERT, SELECT ON uvv.* TO natan;
+
+-- ATENCAO !!! SENHA: maria
+\r uvv natan
