@@ -1,9 +1,3 @@
-CREATE USER natan IDENTIFIED BY 'maria';
-
-CREATE DATABASE uvv;
-
-GRANT ALL PRIVILEGES ON uvv.* TO natan;
-
 
 USE uvv;
 
