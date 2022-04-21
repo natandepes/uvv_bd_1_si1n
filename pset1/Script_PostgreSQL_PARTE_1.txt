@@ -31,5 +31,5 @@ ALTER USER natan
 SET SEARCH_PATH TO elmasri, "$user", public;
 
 -- Me conectando no banco de dados uvv, com meu usuario.
--- ATENCAO !!! SENHA: maria
+-- ATENCAO !!! SENHA: 123
 \c uvv natan;
