@@ -1,13 +1,3 @@
--- Criando o banco de dados uvv.
-
-CREATE DATABASE uvv 
-WITH OWNER = natan  -- Meu user tem como dono.
-TEMPLATE = template0 
-ENCODING = 'UTF8' 
-LC_COLLATE = 'pt_BR.UTF-8' 
-LC_CTYPE = 'pt_BR.UTF-8'
-ALLOW_CONNECTIONS = true;
-
 -- Criando o esquema elmasri, que ficara dentro do banco de dados uvv.
 
 CREATE SCHEMA elmasri     -- Criando o esquema elmasri aonde ficarao alocadas minhas tabelas.
