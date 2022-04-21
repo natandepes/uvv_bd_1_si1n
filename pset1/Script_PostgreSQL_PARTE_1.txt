@@ -15,6 +15,16 @@ CREATE USER natan WITH  -- Criando meu user.
   REPLICATION -- Direito a transferir dados entre bancos de dados.
   ENCRYPTED PASSWORD '123';
 
+-- Criando o banco de dados uvv.
+
+CREATE DATABASE uvv 
+WITH OWNER = natan  -- Meu user tem como dono.
+TEMPLATE = template0 
+ENCODING = 'UTF8' 
+LC_COLLATE = 'pt_BR.UTF-8' 
+LC_CTYPE = 'pt_BR.UTF-8'
+ALLOW_CONNECTIONS = true;
+
 -- Colocando o path do meu usuario para o esquema elmasri.
 
 ALTER USER natan
