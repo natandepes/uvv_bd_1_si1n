@@ -1,11 +1,15 @@
-/* O MySQL/MariaDB nao aceita de jeito nenhum o uso do comando "\r <banco de dados> <user>;" (comando necessario para se conectar com outro usuario no mesmo ou em outro bd) */ 
-/* sem pedir a senha, mesmo que no "CREATE USER" eu nao usasse o termo "IDENTIFIED BY", ele pede a senha mesmo nao existindo, obviamente dando erro. E se eu usar o user com */
+/* O MySQL/MariaDB nao aceita de jeito nenhum o uso do comando "\r <banco de dados> <user>;" sem pedir a senha, (comando necessario para se conectar com outro usuario no */
+/* mesmo ou em outro bd) mesmo que no "CREATE USER" eu nao usasse o termo "IDENTIFIED BY", ele pede a senha mesmo nao existindo, obviamente dando erro. E se eu usar o user com */
 /* senha junto ao resto do script, nao vai funcionar, ele nem te da a oportunidade de escrever a senha, e vai bugar todos os outros comandos que vem apos, */
 /* entao dividi meu script em dois, a fim de nao  bugar todo meu codigo. SENHA DO USER: 123 */
 
-CREATE USER natan IDENTIFIED BY '123';
+DROP USER natan; -- Deletando o user natan caso ja exista.
+DROP DATABASE uvv; -- Deletando o banco de dados uvv caso ja exista.
 
-GRANT CREATE, REFERENCES, DELETE, UPDATE, INSERT, SELECT ON uvv.* TO natan;
+CREATE USER natan IDENTIFIED BY '123';  -- Criando o usuario natan e colocando a senha de 123.
 
+GRANT CREATE, ALTER, DROP, REFERENCES, DELETE, UPDATE, INDEX, INSERT, SELECT ON uvv.* TO natan; -- Garantindo para o meu usuario os privilegios de criar, deletar, referenciar, atualizar, inserir e projetar no em todo o banco de dados uvv.
+
+-- Conectando ao MySQL como o user natan.
 -- ATENCAO !!! SENHA: 123
-system mysql -u natan -p
+system mysql -u natan -p 
