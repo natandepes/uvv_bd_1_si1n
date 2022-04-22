@@ -1,7 +1,7 @@
 /* O MySQL/MariaDB nao aceita de jeito nenhum o uso do comando "system mysql -u <user> -p" sem pedir a senha, (comando necessario para se conectar com outro usuario) */
 /* mesmo que no "CREATE USER" eu nao usasse o termo "IDENTIFIED BY", ele pede a senha mesmo nao existindo, obviamente dando erro. E se tentar rodar o script inteiro junto com o comando */
 /* de conexao, o MySQL pede senha e nao vai funcionar, ele nem te da a oportunidade de escrever a senha, e vai bugar todos os outros comandos que vem apos, */
-/* entao dividi meu script em dois, a fim de nao bugar todo meu codigo. SENHA DO USER: 123 */
+/* entao criei um usuario com senha, e dividi meu script em dois, a fim de nao bugar todo meu codigo. SENHA DO USER: 123 */
 
 DROP USER natan; -- Deletando o user natan caso ja exista.
 DROP DATABASE uvv; -- Deletando o banco de dados uvv caso ja exista.
