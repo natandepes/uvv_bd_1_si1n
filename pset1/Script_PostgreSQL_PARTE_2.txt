@@ -202,7 +202,7 @@ ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE elmasri.trabalha_em ADD CONSTRAINT projeto_trabalha_em_fk
+ALTER TABLE elmasri.trabalha_em ADD CONSTRAINT projeto_trabalha_em_fk -- Adicionando a FK numero_projeto na tabela trabalha_em que referecia o campo numero_projeto na tabela projeto.
 FOREIGN KEY (numero_projeto)
 REFERENCES elmasri.projeto (numero_projeto)
 ON DELETE NO ACTION
