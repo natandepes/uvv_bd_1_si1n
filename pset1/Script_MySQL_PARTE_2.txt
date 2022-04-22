@@ -1,4 +1,4 @@
--- Criando o banco de dados uvv, eu implementarei o esquema do elmasri.
+-- Criando o banco de dados uvv, onde eu implementarei o esquema do elmasri.
 
 CREATE DATABASE uvv;
 
@@ -198,43 +198,43 @@ ALTER TABLE dependente ADD CONSTRAINT CHECK (data_nascimento BETWEEN "1923-01-01
 
 -- Inserindo as Foreign Keys em todas as tabelas.
 
-ALTER TABLE funcionario ADD CONSTRAINT funcionario_funcionario_fk
+ALTER TABLE funcionario ADD CONSTRAINT funcionario_funcionario_fk -- Adicionando a FK cpf_supervisor que referencia a PK cpf na mesma tabela (funcionario).
 FOREIGN KEY (cpf_supervisor)
 REFERENCES funcionario (cpf)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
-ALTER TABLE dependente ADD CONSTRAINT funcionario_dependente_fk
+ALTER TABLE dependente ADD CONSTRAINT funcionario_dependente_fk -- Adicionando a FK cpf_funcionario que referencia a PK cpf na tabela funcionario.
 FOREIGN KEY (cpf_funcionario)
 REFERENCES funcionario (cpf)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
-ALTER TABLE trabalha_em ADD CONSTRAINT funcionario_trabalha_em_fk
+ALTER TABLE trabalha_em ADD CONSTRAINT funcionario_trabalha_em_fk -- Adicionando a FK cpf_funcionario na tabela trabalha_em que referencia a PK cpf na tabela funcionario.
 FOREIGN KEY (cpf_funcionario)
 REFERENCES funcionario (cpf)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
-ALTER TABLE departamento ADD CONSTRAINT funcionario_departamento_fk
+ALTER TABLE departamento ADD CONSTRAINT funcionario_departamento_fk -- Adicionando a FK cpf_gerente na tabela departamento que refrencia a PK cpf na tabela funcionario.
 FOREIGN KEY (cpf_gerente)
 REFERENCES funcionario (cpf)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
-ALTER TABLE projeto ADD CONSTRAINT departamento_projeto_fk
+ALTER TABLE projeto ADD CONSTRAINT departamento_projeto_fk -- Adicionando a FK numero_departamento na tabela projetoo que referencia a PK numero_departamento na tabela departamento.
 FOREIGN KEY (numero_departamento)
 REFERENCES departamento (numero_departamento)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
-ALTER TABLE localizacoes_departamento ADD CONSTRAINT departamento_localizacoes_departamento_fk
+ALTER TABLE localizacoes_departamento ADD CONSTRAINT departamento_localizacoes_departamento_fk -- Adicionando a FK numero_departamento na tabela localizacoes_departamento que refencia a PK numero_departamento na tabela departamento.
 FOREIGN KEY (numero_departamento)
 REFERENCES departamento (numero_departamento)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION;
 
-ALTER TABLE trabalha_em ADD CONSTRAINT projeto_trabalha_em_fk
+ALTER TABLE trabalha_em ADD CONSTRAINT projeto_trabalha_em_fk -- Adicionando a FK numero_projeto na tabela trabalha_em que referecia o campo numero_projeto na tabela projeto.
 FOREIGN KEY (numero_projeto)
 REFERENCES projeto (numero_projeto)
 ON DELETE NO ACTION
