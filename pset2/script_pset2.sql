@@ -91,6 +91,7 @@ ORDER BY primeiro_nome; -- sem ordem o relatorio ficava muito confuso, entao por
 
 
 
+
 -- Questao 9
 
 SELECT nome_departamento, nome_projeto, SUM(horas) AS soma_horas
