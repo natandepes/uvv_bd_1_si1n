@@ -100,3 +100,13 @@ INNER JOIN projeto p ON (dp.numero_departamento = p.numero_departamento)
 INNER JOIN trabalha_em t ON (p.numero_projeto = t.numero_projeto)
 GROUP BY nome_departamento, nome_projeto 
 ORDER BY nome_departamento; -- novamento nao era obrigatorio organizar por ordem mas o fiz para mais facil leitura da tabela.
+
+
+
+
+-- ---------------------------------------------------------------- --
+-- A QUESTAO 10 ERA REPETIDA, TINHA O MESMO ENUNCIADO DA QUESTAO 1. --
+-- ---------------------------------------------------------------- --
+
+
+
