@@ -78,6 +78,9 @@ SELECT DISTINCT primeiro_nome, nome_meio, ultimo_nome, f.numero_departamento, sa
 FROM funcionario f, dependente
 WHERE NOT cpf = cpf_funcionario;
 
+
+
+
 -- Questao 8
 
 SELECT DISTINCT f.numero_departamento, nome_projeto, primeiro_nome, nome_meio, ultimo_nome, horas
@@ -85,3 +88,14 @@ FROM funcionario f
 INNER JOIN projeto p ON (f.numero_departamento = p.numero_departamento)
 INNER JOIN trabalha_em t ON (cpf = t.cpf_funcionario)
 ORDER BY primeiro_nome; -- sem ordem o relatorio ficava muito confuso, entao por mais que nao fosse requerido na questao decidi colocar.
+
+
+
+-- Questao 9
+
+SELECT nome_departamento, nome_projeto, SUM(horas) AS soma_horas
+FROM departamento dp
+INNER JOIN projeto p ON (dp.numero_departamento = p.numero_departamento)
+INNER JOIN trabalha_em t ON (p.numero_projeto = t.numero_projeto)
+GROUP BY nome_departamento, nome_projeto 
+ORDER BY nome_departamento; -- novamento nao era obrigatorio organizar por ordem mas o fiz para mais facil leitura da tabela.
