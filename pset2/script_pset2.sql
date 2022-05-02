@@ -77,3 +77,11 @@ INNER JOIN dependente d ON (f.cpf = d.cpf_funcionario);
 SELECT DISTINCT primeiro_nome, nome_meio, ultimo_nome, f.numero_departamento, salario
 FROM funcionario f, dependente
 WHERE NOT cpf = cpf_funcionario;
+
+-- Questao 8
+
+SELECT DISTINCT f.numero_departamento, nome_projeto, primeiro_nome, nome_meio, ultimo_nome, horas
+FROM funcionario f
+INNER JOIN projeto p ON (f.numero_departamento = p.numero_departamento)
+INNER JOIN trabalha_em t ON (cpf = t.cpf_funcionario)
+ORDER BY primeiro_nome; -- sem ordem o relatorio ficava muito confuso, entao por mais que nao fosse requerido decidi colocar.
