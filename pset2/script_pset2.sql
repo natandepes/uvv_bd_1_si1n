@@ -112,3 +112,12 @@ ORDER BY nome_departamento; -- novamento nao era obrigatorio organizar por ordem
 
 
 
+
+-- Questao 11
+
+SELECT DISTINCT primeiro_nome, nome_meio, ultimo_nome, nome_projeto, SUM(horas * 50) AS valor_total
+FROM funcionario f
+INNER JOIN projeto p ON (f.numero_departamento = p.numero_departamento)
+INNER JOIN trabalha_em t ON (p.numero_projeto = t.numero_projeto)
+GROUP BY primeiro_nome, nome_meio, ultimo_nome, nome_projeto
+ORDER BY primeiro_nome;
