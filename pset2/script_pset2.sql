@@ -83,10 +83,12 @@ WHERE NOT cpf = cpf_funcionario;
 
 -- Questao 8
 
-SELECT DISTINCT f.numero_departamento, nome_projeto, primeiro_nome, nome_meio, ultimo_nome, horas
+
+SELECT DISTINCT f.numero_departamento, nome_projeto, primeiro_nome, nome_meio, ultimo_nome, SUM(horas) AS horas_por_projeto -- decidi realizar a somatoria para a tabela ficar mais legivel
 FROM funcionario f
 INNER JOIN projeto p ON (f.numero_departamento = p.numero_departamento)
 INNER JOIN trabalha_em t ON (cpf = t.cpf_funcionario)
+GROUP BY f.numero_departamento, nome_projeto, primeiro_nome, nome_meio, ultimo_nome -- o SUM obriga o uso da clausula GROUP BY ou de uma subquery
 ORDER BY primeiro_nome; -- sem ordem o relatorio ficava muito confuso, entao por mais que nao fosse requerido na questao decidi colocar.
 
 
