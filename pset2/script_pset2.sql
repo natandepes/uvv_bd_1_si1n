@@ -84,4 +84,4 @@ SELECT DISTINCT f.numero_departamento, nome_projeto, primeiro_nome, nome_meio, u
 FROM funcionario f
 INNER JOIN projeto p ON (f.numero_departamento = p.numero_departamento)
 INNER JOIN trabalha_em t ON (cpf = t.cpf_funcionario)
-ORDER BY primeiro_nome; -- sem ordem o relatorio ficava muito confuso, entao por mais que nao fosse requerido decidi colocar.
+ORDER BY primeiro_nome; -- sem ordem o relatorio ficava muito confuso, entao por mais que nao fosse requerido na questao decidi colocar.
