@@ -121,3 +121,15 @@ INNER JOIN projeto p ON (f.numero_departamento = p.numero_departamento)
 INNER JOIN trabalha_em t ON (p.numero_projeto = t.numero_projeto)
 GROUP BY primeiro_nome, nome_meio, ultimo_nome, nome_projeto
 ORDER BY primeiro_nome;
+
+
+
+
+-- Questao 12
+
+SELECT nome_departamento, nome_projeto, primeiro_nome AS nome_funcionario
+FROM projeto p
+INNER JOIN departamento d ON (p.numero_departamento = d.numero_departamento)
+INNER JOIN funcionario f ON (p.numero_departamento = f.numero_departamento)
+INNER JOIN trabalha_em t ON (p.numero_projeto = t.numero_projeto)
+WHERE t.horas = 0;
