@@ -133,3 +133,14 @@ INNER JOIN departamento d ON (p.numero_departamento = d.numero_departamento)
 INNER JOIN funcionario f ON (p.numero_departamento = f.numero_departamento)
 INNER JOIN trabalha_em t ON (p.numero_projeto = t.numero_projeto)
 WHERE t.horas = 0;
+
+
+
+
+-- Questao 13
+
+SELECT primeiro_nome AS primeiro_nome_funcionario, nome_meio AS nome_meio_funcionario, ultimo_nome AS ultimo_nome_funcionario, f.sexo AS sexo_funcionario, 
+DATE_PART('year', CURRENT_DATE) - DATE_PART('year', f.data_nascimento) AS idade_funcionario, nome_dependente, d.sexo AS sexo_dependente,
+DATE_PART('year', CURRENT_DATE) - DATE_PART('year', d.data_nascimento) AS idade_dependente
+FROM funcionario f
+INNER JOIN dependente d ON (cpf = cpf_funcionario);
