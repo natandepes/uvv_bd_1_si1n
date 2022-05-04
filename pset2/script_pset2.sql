@@ -138,3 +138,14 @@ WHERE t.horas = 0;
 
 -- Questao 13
 
+SELECT COUNT(cpf) AS num_funcionarios_dep_1
+FROM funcionario
+WHERE numero_departamento = 1;
+
+SELECT COUNT(cpf) AS num_funcionarios_dep_5
+FROM funcionario
+WHERE numero_departamento = 4;
+
+SELECT COUNT(cpf) AS num_funcionarios_dep_5
+FROM funcionario
+WHERE numero_departamento = 5;
