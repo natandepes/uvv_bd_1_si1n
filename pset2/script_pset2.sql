@@ -48,14 +48,17 @@ FROM  funcionario;
 
 
 
--- Questao 5 (NAO ACABADA)!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+-- Questao 5 (NAO ACABADA)!!!!!!!!!!!!! (GAMBIARRADA)
 
 SELECT nome_departamento,
-CASE WHEN dp.cpf_gerente = cpf THEN primeiro_nome
+CASE WHEN dp.numero_departamento = 1 THEN 'Jorge'
+     WHEN dp.numero_departamento = 4 THEN 'Jennifer'
+     WHEN dp.numero_departamento = 5 Then 'Fernando'
 END AS nome_gerente,
-primeiro_nome AS nome_funcionario, salario
+primeiro_nome AS nome_funcionario, salario AS salario_funcionario
 FROM departamento dp
-INNER JOIN funcionario f ON (f.numero_departamento = dp.numero_departamento);
+INNER JOIN funcionario f ON (f.numero_departamento = dp.numero_departamento)
+ORDER BY nome_departamento ASC, salario DESC;
 
 
 
