@@ -140,11 +140,11 @@ WHERE t.horas = 0;
 
 SELECT COUNT(cpf) AS numero_funcionarios_departamentos
 FROM funcionario
-WHERE numero_departamento = 1;
+WHERE numero_departamento = 1
 UNION
 SELECT COUNT(cpf)
 FROM funcionario
-WHERE numero_departamento = 4;
+WHERE numero_departamento = 4
 UNION
 SELECT COUNT(cpf)
 FROM funcionario
