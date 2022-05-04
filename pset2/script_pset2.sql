@@ -140,10 +140,10 @@ ORDER BY nome_completo_funcionario;
 -- Questao 12
 
 SELECT nome_departamento, nome_projeto, primeiro_nome AS nome_funcionario
-FROM projeto p
+FROM projeto            p
 INNER JOIN departamento dp ON (p.numero_departamento = dp.numero_departamento)
-INNER JOIN funcionario f   ON (p.numero_departamento = f.numero_departamento)
-INNER JOIN trabalha_em t   ON (p.numero_projeto = t.numero_projeto)
+INNER JOIN funcionario  f  ON (p.numero_departamento = f.numero_departamento)
+INNER JOIN trabalha_em  t  ON (p.numero_projeto = t.numero_projeto)
 WHERE t.horas = 0;
 
 
