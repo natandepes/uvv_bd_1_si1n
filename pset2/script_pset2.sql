@@ -1,29 +1,29 @@
 -- Questao 1
 
-SELECT AVG(salario) AS media_salario_departamento_1
+SELECT AVG(salario) AS media_salario_departamentos
 FROM funcionario
-WHERE numero_departamento = 1;
-
-SELECT AVG(salario) AS media_salario_departamento_4
+WHERE numero_departamento = 1
+UNION
+SELECT AVG(salario)
 FROM funcionario
-WHERE numero_departamento = 4;
-
-SELECT AVG(salario) AS media_salario_departamento_5
+WHERE numero_departamento = 4
+UNION
+SELECT AVG(salario)
 FROM funcionario
-WHERE numero_departamento = 5;
+WHERE numero_departamento = 5;  -- Respectivamente departamento 1, 4 e 5.
 
 
 
 
 -- Questao 2
 
-SELECT AVG(salario) AS media_salarial_homens
+SELECT AVG(salario) AS media_salarial_por_sexo
 FROM funcionario
 WHERE sexo = 'M';
-
-SELECT AVG(salario) AS media_salarial_mulheres
+UNION
+SELECT AVG(salario)
 FROM funcionario
-WHERE sexo = 'F';
+WHERE sexo = 'F'; -- Respectivamente sexo masculino e feminino.
 
 
 
@@ -138,14 +138,14 @@ WHERE t.horas = 0;
 
 -- Questao 14
 
-SELECT COUNT(cpf) AS num_funcionarios_dep_1
+SELECT COUNT(cpf) AS numero_funcionarios_departamentos
 FROM funcionario
 WHERE numero_departamento = 1;
-
-SELECT COUNT(cpf) AS num_funcionarios_dep_5
+UNION
+SELECT COUNT(cpf)
 FROM funcionario
 WHERE numero_departamento = 4;
-
-SELECT COUNT(cpf) AS num_funcionarios_dep_5
+UNION
+SELECT COUNT(cpf)
 FROM funcionario
-WHERE numero_departamento = 5;
+WHERE numero_departamento = 5; -- Respectivamente departamentos 1, 4 e 5.
