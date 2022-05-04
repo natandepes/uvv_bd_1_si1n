@@ -179,8 +179,9 @@ GROUP BY departamento;
 
 -- Questao 15
 
-SELECT CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome) AS nome_completo_funcionario
-, f.numero_departamento                                      AS departamento
-, nome_projeto
+  SELECT CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome) AS nome_completo_funcionario
+, f.numero_departamento                                        AS departamento
+, nome_projeto                                                 AS nome_projeto_alocado
 FROM funcionario        f
-LEFT OUTER JOIN projeto p ON (f.numero_departamento = p.numero_departamento); -- Por mais que todos os funcionarios neste esquema trabalhem em exemplos, foi pedido para incluir ate os funcionarios que nao trabalhassem, entao usei LEFT OUTER JOIN.
+LEFT OUTER JOIN projeto p ON (f.numero_departamento = p.numero_departamento) -- Por mais que todos os funcionarios neste esquema trabalhem em exemplos, foi pedido para incluir ate os funcionarios que nao trabalhassem, entao usei LEFT OUTER JOIN.
+ORDER BY nome_completo_funcionario; -- Nao foi requerido mas ordenei assim para que ficasse mais organizado.
