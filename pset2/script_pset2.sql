@@ -153,12 +153,14 @@ WHERE t.horas = 0;
 
 -- Questao 13
 
-SELECT CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome)                                         AS nome_completo_pessoa
-       , sexo 
-       , DATE_PART('year', CURRENT_DATE) - DATE_PART('year', data_nascimento)                        AS idade
+SELECT CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome)                                  AS nome_completo_pessoa
+, sexo 
+, DATE_PART('year', CURRENT_DATE) - DATE_PART('year', data_nascimento)                        AS idade
 FROM funcionario
 UNION
-SELECT (nome_dependente), sexo ,DATE_PART('year', CURRENT_DATE) - DATE_PART('year', data_nascimento) AS idade
+SELECT (nome_dependente)
+, sexo 
+, DATE_PART('year', CURRENT_DATE) - DATE_PART('year', data_nascimento)                        AS idade
 FROM dependente
 ORDER BY idade DESC;
 
