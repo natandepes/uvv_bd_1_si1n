@@ -4,32 +4,20 @@
 -- --------------------------------------------------------------------------------------------------------------------------------------------------------------------- --
 
 
--- Questao 1 (DA PRA MELHORAR EU ACHO)
+-- Questao 1
 
-SELECT AVG(salario) AS media_salarial_departamento
+SELECT numero_departamento, AVG(salario) AS media_salarial
 FROM funcionario
-WHERE numero_departamento = 1
-UNION
-SELECT AVG(salario)
-FROM funcionario
-WHERE numero_departamento = 4
-UNION
-SELECT AVG(salario)
-FROM funcionario
-WHERE numero_departamento = 5; -- Respectivamente departamento 1, 4 e 5.
+GROUP BY numero_departamento;
 
 
 
 
 -- Questao 2
 
-SELECT AVG(salario) AS media_salarial_por_sexo
+SELECT sexo, AVG(salario) AS media_salarial
 FROM funcionario
-WHERE sexo = 'M'
-UNION
-SELECT AVG(salario)
-FROM funcionario
-WHERE sexo = 'F'; -- Respectivamente sexo masculino e feminino.
+GROUP BY sexo;
 
 
 
@@ -58,7 +46,7 @@ FROM  funcionario;
 
 
 
--- Questao 5 (GAMBIARRADA)
+-- Questao 5 (NAO ACABADA)!!!!!!!!!!!!! (GAMBIARRADA)
 
 SELECT nome_departamento,
 CASE WHEN dp.numero_departamento = 1 THEN 'Jorge'
@@ -159,7 +147,7 @@ WHERE t.horas = 0;
 
 
 
--- Questao 13 (SOCORRO)!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+-- Questao 13 (NAO ACABADA)!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 SELECT (primeiro_nome, nome_meio, ultimo_nome)                                                       AS nome_completo_pessoa
        , sexo 
@@ -173,7 +161,7 @@ ORDER BY idade DESC;
 
 
 
--- Questao 14 (DA PRA MELHORAR EU ACHO)
+-- Questao 14
 
 SELECT COUNT(cpf) AS numero_funcionarios_departamentos
 FROM funcionario
