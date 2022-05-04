@@ -6,7 +6,8 @@
 
 -- Questao 1
 
-SELECT numero_departamento, AVG(salario) AS media_salarial
+SELECT numero_departamento AS departamento
+, AVG(salario)             AS media_salarial
 FROM funcionario
 GROUP BY numero_departamento;
 
@@ -55,7 +56,7 @@ CASE WHEN dp.numero_departamento = 1 THEN 'Jorge'
 END                                        AS nome_gerente
 , primeiro_nome                            AS nome_funcionario
 , salario                                  AS salario_funcionario
-FROM departamento dp
+FROM departamento      dp
 INNER JOIN funcionario f ON (f.numero_departamento = dp.numero_departamento)
 ORDER BY nome_departamento ASC, salario DESC;
 
@@ -71,7 +72,7 @@ SELECT (primeiro_nome, nome_meio, ultimo_nome)                           AS nome
 , CASE WHEN d.sexo = 'M' THEN 'Masculino'
        WHEN d.sexo = 'F' THEN 'Feminino'
 END                                                                      AS sexo_dependente
-FROM funcionario f
+FROM funcionario      f
 INNER JOIN dependente d ON (f.cpf = d.cpf_funcionario);
 
 
@@ -94,8 +95,8 @@ SELECT DISTINCT f.numero_departamento     AS departamento
 , nome_projeto
 , (primeiro_nome, nome_meio, ultimo_nome) AS nome_completo_funcionario
 , SUM(horas)                              AS horas_por_projeto -- decidi realizar a somatoria para a tabela ficar mais legivel
-FROM funcionario f
-INNER JOIN projeto p     ON (f.numero_departamento = p.numero_departamento)
+FROM funcionario       f
+INNER JOIN projeto     p ON (f.numero_departamento = p.numero_departamento)
 INNER JOIN trabalha_em t ON (cpf = t.cpf_funcionario)
 GROUP BY f.numero_departamento, nome_projeto, nome_completo_funcionario, ultimo_nome -- o SUM obriga o uso da clausula GROUP BY ou de uma subquery.
 ORDER BY nome_completo_funcionario; -- sem ordem o relatorio ficava muito confuso, entao por mais que nao fosse requerido na questao decidi colocar.
@@ -106,7 +107,7 @@ ORDER BY nome_completo_funcionario; -- sem ordem o relatorio ficava muito confus
 -- Questao 9
 
 SELECT nome_departamento, nome_projeto, SUM(horas) AS soma_horas
-FROM departamento dp
+FROM departamento      dp
 INNER JOIN projeto     p ON (dp.numero_departamento = p.numero_departamento)
 INNER JOIN trabalha_em t ON (p.numero_projeto = t.numero_projeto)
 GROUP BY nome_departamento, nome_projeto 
@@ -127,8 +128,8 @@ ORDER BY nome_departamento; -- novamente nao era obrigatorio organizar por ordem
 SELECT DISTINCT (primeiro_nome, nome_meio, ultimo_nome) AS nome_completo_funcionario
 , nome_projeto
 , SUM(horas * 50)                                       AS valor_total
-FROM funcionario f
-INNER JOIN projeto p       ON (f.numero_departamento = p.numero_departamento)
+FROM funcionario       f
+INNER JOIN projeto     p   ON (f.numero_departamento = p.numero_departamento)
 INNER JOIN trabalha_em t   ON (p.numero_projeto = t.numero_projeto)
 GROUP BY nome_completo_funcionario, nome_projeto
 ORDER BY nome_completo_funcionario;
@@ -163,17 +164,10 @@ ORDER BY idade DESC;
 
 -- Questao 14
 
-SELECT COUNT(cpf) AS numero_funcionarios_departamentos
+SELECT numero_departamento AS departamento
+, COUNT(cpf)               AS numero_de_funcionarios
 FROM funcionario
-WHERE numero_departamento = 1
-UNION
-SELECT COUNT(cpf)
-FROM funcionario
-WHERE numero_departamento = 4
-UNION
-SELECT COUNT(cpf)
-FROM funcionario
-WHERE numero_departamento = 5; -- Respectivamente departamentos 1, 4 e 5.
+GROUP BY departamento;
 
 
 
@@ -182,5 +176,5 @@ WHERE numero_departamento = 5; -- Respectivamente departamentos 1, 4 e 5.
 
 SELECT (primeiro_nome, nome_meio, ultimo_nome) AS nome_completo_funcionario
 , f.numero_departamento                        AS departamento, nome_projeto
-FROM funcionario f
+FROM funcionario        f
 LEFT OUTER JOIN projeto p ON (f.numero_departamento = p.numero_departamento); -- Por mais que todos os funcionarios neste esquema trabalhem em exemplos, foi pedido para incluir ate os funcionarios que nao trabalhassem, entao usei LEFT OUTER JOIN.
