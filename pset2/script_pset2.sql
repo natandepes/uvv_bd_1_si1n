@@ -70,7 +70,7 @@ ORDER BY nome_departamento ASC, salario DESC;
 
 SELECT CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome)             AS nome_completo_funcionario
 , numero_departamento                                                    AS departamento
-, nome_dependente
+, CONCAT(nome_dependente, ' ', ultimo_nome)                              AS nome_completo_dependente
 , DATE_PART('year', CURRENT_DATE) - DATE_PART('year', d.data_nascimento) AS idade_dependente
 , CASE WHEN d.sexo = 'M' THEN 'Masculino'
        WHEN d.sexo = 'F' THEN 'Feminino'
@@ -154,14 +154,15 @@ WHERE t.horas = 0;
 -- Questao 13
 
 SELECT CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome)                                  AS nome_completo_pessoa
-, sexo 
+, sexo                                                                                        AS sexo
 , DATE_PART('year', CURRENT_DATE) - DATE_PART('year', data_nascimento)                        AS idade
 FROM funcionario
 UNION
-SELECT (nome_dependente)
-, sexo 
-, DATE_PART('year', CURRENT_DATE) - DATE_PART('year', data_nascimento)                        AS idade
-FROM dependente
+SELECT CONCAT(nome_dependente, ' ', f.ultimo_nome)
+, d.sexo
+, DATE_PART('year', CURRENT_DATE) - DATE_PART('year', d.data_nascimento)
+FROM dependente        d
+INNER JOIN funcionario f ON (cpf_funcionario = cpf)
 ORDER BY idade DESC;
 
 
