@@ -1,6 +1,6 @@
 -- Questao 1
 
-SELECT AVG(salario) AS media_salario_departamentos
+SELECT AVG(salario) AS media_salarial_departamento
 FROM funcionario
 WHERE numero_departamento = 1
 UNION
@@ -10,7 +10,7 @@ WHERE numero_departamento = 4
 UNION
 SELECT AVG(salario)
 FROM funcionario
-WHERE numero_departamento = 5;  -- Respectivamente departamento 1, 4 e 5.
+WHERE numero_departamento = 5; -- Respectivamente departamento 1, 4 e 5.
 
 
 
