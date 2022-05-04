@@ -149,7 +149,7 @@ WHERE t.horas = 0;
 
 
 
--- Questao 13 (NAO ACABADA)!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+-- Questao 13
 
 SELECT CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome)                                         AS nome_completo_pessoa
        , sexo 
@@ -176,6 +176,7 @@ GROUP BY departamento;
 -- Questao 15
 
 SELECT CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome) AS nome_completo_funcionario
-, f.numero_departamento                                      AS departamento, nome_projeto
+, f.numero_departamento                                      AS departamento
+, nome_projeto
 FROM funcionario        f
 LEFT OUTER JOIN projeto p ON (f.numero_departamento = p.numero_departamento); -- Por mais que todos os funcionarios neste esquema trabalhem em exemplos, foi pedido para incluir ate os funcionarios que nao trabalhassem, entao usei LEFT OUTER JOIN.
