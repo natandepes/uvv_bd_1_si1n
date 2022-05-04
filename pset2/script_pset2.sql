@@ -26,7 +26,7 @@ GROUP BY sexo;
 
 -- Questao 3
 
-SELECT (primeiro_nome, nome_meio, ultimo_nome)                                          AS nome_completo_funcionario
+SELECT CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome)                            AS nome_completo_funcionario
 , data_nascimento, DATE_PART('year', CURRENT_DATE) - DATE_PART('year', data_nascimento) AS idade
 , salario
 FROM funcionario        f
@@ -37,7 +37,7 @@ INNER JOIN departamento dp ON (f.numero_departamento = dp.numero_departamento);
 
 -- Questao 4
 
- SELECT (primeiro_nome, nome_meio, ultimo_nome)                         AS nome_completo_funcionario
+ SELECT CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome)           AS nome_completo_funcionario
  , DATE_PART('year', CURRENT_DATE) - DATE_PART('year', data_nascimento) AS idade
  , salario
  ,  CASE  WHEN salario < 35000 THEN salario + salario * 20/100
@@ -66,7 +66,7 @@ ORDER BY nome_departamento ASC, salario DESC;
 
 -- Questao 6
 
-SELECT (primeiro_nome, nome_meio, ultimo_nome)                           AS nome_completo_funcionario
+SELECT CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome)             AS nome_completo_funcionario
 , numero_departamento                                                    AS departamento
 , nome_dependente
 , DATE_PART('year', CURRENT_DATE) - DATE_PART('year', d.data_nascimento) AS idade_dependente
@@ -81,8 +81,8 @@ INNER JOIN dependente d ON (f.cpf = d.cpf_funcionario);
 
 -- Questao 7
 
-SELECT DISTINCT (primeiro_nome, nome_meio, ultimo_nome) AS nome_completo_funcionario
-, f.numero_departamento                                 AS departamento
+SELECT DISTINCT CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome) AS nome_completo_funcionario
+, f.numero_departamento                                               AS departamento
 , salario
 FROM funcionario f, dependente
 WHERE NOT cpf = cpf_funcionario;
@@ -92,10 +92,10 @@ WHERE NOT cpf = cpf_funcionario;
 
 -- Questao 8
 
-SELECT DISTINCT f.numero_departamento     AS departamento
+SELECT DISTINCT f.numero_departamento                   AS departamento
 , nome_projeto
-, (primeiro_nome, nome_meio, ultimo_nome) AS nome_completo_funcionario
-, SUM(horas)                              AS horas_por_projeto -- decidi realizar a somatoria para a tabela ficar mais legivel
+, CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome) AS nome_completo_funcionario
+, SUM(horas)                                            AS horas_por_projeto -- decidi realizar a somatoria para a tabela ficar mais legivel
 FROM funcionario       f
 INNER JOIN projeto     p ON (f.numero_departamento = p.numero_departamento)
 INNER JOIN trabalha_em t ON (cpf = t.cpf_funcionario)
@@ -126,9 +126,9 @@ ORDER BY nome_departamento; -- novamente nao era obrigatorio organizar por ordem
 
 -- Questao 11
 
-SELECT DISTINCT (primeiro_nome, nome_meio, ultimo_nome) AS nome_completo_funcionario
+SELECT DISTINCT CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome) AS nome_completo_funcionario
 , nome_projeto
-, SUM(horas * 50)                                       AS valor_total
+, SUM(horas * 50)                                                     AS valor_total
 FROM funcionario       f
 INNER JOIN projeto     p   ON (f.numero_departamento = p.numero_departamento)
 INNER JOIN trabalha_em t   ON (p.numero_projeto = t.numero_projeto)
@@ -151,7 +151,7 @@ WHERE t.horas = 0;
 
 -- Questao 13 (NAO ACABADA)!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-SELECT (primeiro_nome, nome_meio, ultimo_nome)                                                       AS nome_completo_pessoa
+SELECT CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome)                                         AS nome_completo_pessoa
        , sexo 
        , DATE_PART('year', CURRENT_DATE) - DATE_PART('year', data_nascimento)                        AS idade
 FROM funcionario
@@ -175,7 +175,7 @@ GROUP BY departamento;
 
 -- Questao 15
 
-SELECT (primeiro_nome, nome_meio, ultimo_nome) AS nome_completo_funcionario
-, f.numero_departamento                        AS departamento, nome_projeto
+SELECT CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome) AS nome_completo_funcionario
+, f.numero_departamento                                      AS departamento, nome_projeto
 FROM funcionario        f
 LEFT OUTER JOIN projeto p ON (f.numero_departamento = p.numero_departamento); -- Por mais que todos os funcionarios neste esquema trabalhem em exemplos, foi pedido para incluir ate os funcionarios que nao trabalhassem, entao usei LEFT OUTER JOIN.
