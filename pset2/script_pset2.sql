@@ -179,7 +179,7 @@ GROUP BY departamento;
 
 -- Questao 15
 
-  SELECT CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome) AS nome_completo_funcionario
+SELECT CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome)   AS nome_completo_funcionario
 , f.numero_departamento                                        AS departamento
 , nome_projeto                                                 AS nome_projeto_alocado
 FROM funcionario        f
