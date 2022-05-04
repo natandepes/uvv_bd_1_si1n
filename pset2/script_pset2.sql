@@ -16,7 +16,8 @@ GROUP BY numero_departamento;
 
 -- Questao 2
 
-SELECT sexo, AVG(salario) AS media_salarial
+SELECT sexo
+, AVG(salario) AS media_salarial
 FROM funcionario
 GROUP BY sexo;
 
