@@ -148,7 +148,7 @@ FROM projeto            p
 INNER JOIN departamento dp ON (p.numero_departamento = dp.numero_departamento)
 INNER JOIN funcionario  f  ON (p.numero_departamento = f.numero_departamento)
 INNER JOIN trabalha_em  t  ON (p.numero_projeto = t.numero_projeto)
-WHERE t.horas = 0;
+WHERE t.horas IS NULL;
 
 
 
