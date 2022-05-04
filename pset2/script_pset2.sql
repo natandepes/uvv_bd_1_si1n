@@ -1,6 +1,6 @@
 -- --------------------------------------------------------------------------------------------------------------------------------------------------------------------- -- 
 -- Fui orientado que a SQL se mantem universal para qualquer SGBD, porem em caso de algum problema, todas essas queries foram testadas e revisadas no PostgreSQL, se por --
--- acaso acontecer qualquer tipo de erro em relacao as queries, insisto para que tente no PostgreSQL. Obrigado.                                                          --
+-- acaso acontecer qualquer tipo de erro em relacao as queries, insisto para que tente executa-las pelo PostgreSQL. Obrigado.                                                          --
 -- --------------------------------------------------------------------------------------------------------------------------------------------------------------------- --
 
 
