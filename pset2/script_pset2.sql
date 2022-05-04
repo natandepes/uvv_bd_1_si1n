@@ -95,7 +95,7 @@ WHERE cpf_funcionario IS NULL;
 
 -- Questao 8
 
-SELECT DISTINCT f.numero_departamento                   AS departamento
+SELECT f.numero_departamento                            AS departamento
 , nome_projeto
 , CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome) AS nome_completo_funcionario
 , SUM(horas)                                            AS horas_por_projeto -- decidi realizar a somatoria para a tabela ficar mais legivel
