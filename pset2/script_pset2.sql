@@ -41,7 +41,7 @@ ORDER BY nome_departamento; -- Nao foi requerido mas ordenei assim para que fica
 
  SELECT CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome)           AS nome_completo_funcionario
  , DATE_PART('year', CURRENT_DATE) - DATE_PART('year', data_nascimento) AS idade
- , salario
+ , salario                                                              AS salario_atual
  ,  CASE  WHEN salario < 35000 THEN salario + salario * 20/100
           WHEN salario >= 35000 THEN salario + salario * 15/100
 END                                                                     AS salario_reajuste
