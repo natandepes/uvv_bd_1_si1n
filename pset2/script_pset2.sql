@@ -141,7 +141,7 @@ ORDER BY nome_completo_funcionario;
 
 
 
--- Questao 12
+-- Questao 12 (CONFIRMAR COM ABRANTES)
 
 SELECT nome_departamento, nome_projeto, primeiro_nome AS nome_funcionario
 FROM projeto            p
