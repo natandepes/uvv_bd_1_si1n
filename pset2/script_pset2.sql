@@ -62,7 +62,7 @@ INNER JOIN funcionario f ON (f.numero_departamento = dp.numero_departamento);
 
 -- Questao 6
 
-SELECT (primeiro_nome, nome_meio, ultimo_nome) AS nome_completo_funcionario, numero_departamento, nome_dependente, DATE_PART('year', CURRENT_DATE) - DATE_PART('year', d.data_nascimento) AS idade_dependente,
+SELECT (primeiro_nome, nome_meio, ultimo_nome) AS nome_completo_funcionario, numero_departamento AS departamento, nome_dependente, DATE_PART('year', CURRENT_DATE) - DATE_PART('year', d.data_nascimento) AS idade_dependente,
 CASE WHEN d.sexo = 'M' THEN 'Masculino'
      WHEN d.sexo = 'F' THEN 'Feminino'
 END AS sexo_dependente
@@ -74,7 +74,7 @@ INNER JOIN dependente d ON (f.cpf = d.cpf_funcionario);
 
 -- Questao 7
 
-SELECT DISTINCT (primeiro_nome, nome_meio, ultimo_nome) AS nome_completo_funcionario, f.numero_departamento, salario
+SELECT DISTINCT (primeiro_nome, nome_meio, ultimo_nome) AS nome_completo_funcionario, f.numero_departamento AS departamento, salario
 FROM funcionario f, dependente
 WHERE NOT cpf = cpf_funcionario;
 
@@ -83,7 +83,7 @@ WHERE NOT cpf = cpf_funcionario;
 
 -- Questao 8
 
-SELECT DISTINCT f.numero_departamento, nome_projeto, (primeiro_nome, nome_meio, ultimo_nome) AS nome_completo_funcionario, SUM(horas) AS horas_por_projeto -- decidi realizar a somatoria para a tabela ficar mais legivel
+SELECT DISTINCT f.numero_departamento AS departamento, nome_projeto, (primeiro_nome, nome_meio, ultimo_nome) AS nome_completo_funcionario, SUM(horas) AS horas_por_projeto -- decidi realizar a somatoria para a tabela ficar mais legivel
 FROM funcionario f
 INNER JOIN projeto p ON (f.numero_departamento = p.numero_departamento)
 INNER JOIN trabalha_em t ON (cpf = t.cpf_funcionario)
