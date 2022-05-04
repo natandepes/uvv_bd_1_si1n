@@ -26,11 +26,13 @@ GROUP BY sexo;
 
 -- Questao 3
 
-SELECT CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome)                            AS nome_completo_funcionario
+SELECT nome_departamento
+, CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome)                                 AS nome_completo_funcionario
 , data_nascimento, DATE_PART('year', CURRENT_DATE) - DATE_PART('year', data_nascimento) AS idade
 , salario
 FROM funcionario        f
-INNER JOIN departamento dp ON (f.numero_departamento = dp.numero_departamento);
+INNER JOIN departamento dp ON (f.numero_departamento = dp.numero_departamento)
+ORDER BY nome_departamento; -- Nao foi requerido mas ordenei assim para que ficasse mais organizado.
 
 
 
