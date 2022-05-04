@@ -136,7 +136,7 @@ WHERE t.horas = 0;
 
 
 
--- Questao 13
+-- Questao 14
 
 SELECT COUNT(cpf) AS num_funcionarios_dep_1
 FROM funcionario
