@@ -171,11 +171,11 @@ ORDER BY idade DESC;
 
 -- Questao 14
 
-SELECT numero_departamento AS departamento
-, COUNT(cpf)               AS numero_de_funcionarios
-FROM funcionario
-GROUP BY departamento;
-
+SELECT nome_departamento AS departamento -- Optei colocar o nome do departamento para o relatorio ficar mais legivel.
+, COUNT(cpf)             AS numero_de_funcionarios
+FROM funcionario        f
+INNER JOIN departamento dp ON (f.numero_departamento = dp.numero_departamento)
+GROUP BY nome_departamento;
 
 
 
