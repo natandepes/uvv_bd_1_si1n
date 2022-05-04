@@ -84,10 +84,11 @@ INNER JOIN dependente d ON (f.cpf = d.cpf_funcionario);
 -- Questao 7
 
 SELECT DISTINCT CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome) AS nome_completo_funcionario
-, f.numero_departamento                                               AS departamento
+, f. numero_departamento                                              AS departamento
 , salario
-FROM funcionario f, dependente
-WHERE NOT cpf = cpf_funcionario;
+FROM funcionario           f
+LEFT OUTER JOIN dependente d ON (f.cpf = d.cpf_funcionario)
+WHERE cpf_funcionario IS NULL;
 
 
 
@@ -100,7 +101,7 @@ SELECT DISTINCT f.numero_departamento                   AS departamento
 , SUM(horas)                                            AS horas_por_projeto -- decidi realizar a somatoria para a tabela ficar mais legivel
 FROM funcionario       f
 INNER JOIN projeto     p ON (f.numero_departamento = p.numero_departamento)
-INNER JOIN trabalha_em t ON (cpf = t.cpf_funcionario)
+INNER JOIN trabalha_em t ON (f.cpf = t.cpf_funcionario)
 GROUP BY f.numero_departamento, nome_projeto, nome_completo_funcionario, ultimo_nome -- o SUM obriga o uso da clausula GROUP BY ou de uma subquery.
 ORDER BY nome_completo_funcionario; -- sem ordem o relatorio ficava muito confuso, entao por mais que nao fosse requerido na questao decidi colocar.
 
