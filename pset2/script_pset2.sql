@@ -100,8 +100,8 @@ SELECT f.numero_departamento                                 AS departamento
 , CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome)      AS nome_completo_funcionario
 , SUM(horas)                                                 AS horas_por_projeto -- decidi realizar a somatoria para a tabela ficar mais legivel
 FROM funcionario       f
-INNER JOIN projeto     p ON (f.numero_departamento = p.numero_departamento)
-INNER JOIN trabalha_em t ON (p.numero_projeto = t.numero_projeto)
+INNER JOIN trabalha_em t ON (f.cpf = t.cpf_funcionario)
+INNER JOIN projeto     p ON (p.numero_projeto = t.numero_projeto)
 WHERE f.cpf = t.cpf_funcionario
 GROUP BY departamento, nome_projeto, nome_completo_funcionario 
 ORDER BY nome_completo_funcionario;
