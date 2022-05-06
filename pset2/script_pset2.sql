@@ -95,15 +95,16 @@ WHERE cpf_funcionario IS NULL;
 
 -- Questao 8
 
-SELECT f.numero_departamento                            AS departamento
+SELECT f.numero_departamento                                 AS departamento
 , nome_projeto
-, CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome) AS nome_completo_funcionario
-, SUM(horas)                                            AS horas_por_projeto -- decidi realizar a somatoria para a tabela ficar mais legivel
+, CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome)      AS nome_completo_funcionario
+, SUM(horas)                                                 AS horas_por_projeto -- decidi realizar a somatoria para a tabela ficar mais legivel
 FROM funcionario       f
 INNER JOIN projeto     p ON (f.numero_departamento = p.numero_departamento)
-INNER JOIN trabalha_em t ON (f.cpf = t.cpf_funcionario)
-GROUP BY f.numero_departamento, nome_projeto, nome_completo_funcionario, ultimo_nome -- o SUM obriga o uso da clausula GROUP BY ou de uma subquery.
-ORDER BY nome_completo_funcionario; -- sem ordem o relatorio ficava muito confuso, entao por mais que nao fosse requerido na questao decidi colocar.
+INNER JOIN trabalha_em t ON (p.numero_projeto = t.numero_projeto)
+WHERE f.cpf = t.cpf_funcionario
+GROUP BY departamento, nome_projeto, nome_completo_funcionario 
+ORDER BY nome_completo_funcionario;
 
 
 
@@ -141,7 +142,7 @@ ORDER BY nome_completo_funcionario;
 
 
 
--- Questao 12 (CONFIRMAR COM ABRANTES)
+-- Questao 12
 
 SELECT nome_departamento
 , nome_projeto
@@ -150,7 +151,7 @@ FROM projeto            p
 INNER JOIN departamento dp ON (p.numero_departamento = dp.numero_departamento)
 INNER JOIN funcionario  f  ON (p.numero_departamento = f.numero_departamento)
 INNER JOIN trabalha_em  t  ON (p.numero_projeto = t.numero_projeto)
-WHERE t.horas IS NULL;
+WHERE t.horas IS NULL OR t.horas = 0;
 
 
 
