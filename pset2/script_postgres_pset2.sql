@@ -8,8 +8,8 @@
 -- --------- --
 
 SELECT 
-  numero_departamento      AS departamento
-, AVG(salario)             AS media_salarial
+  numero_departamento AS departamento
+, AVG(salario)        AS media_salarial
 FROM funcionario
 GROUP BY numero_departamento;
 
@@ -109,8 +109,8 @@ INNER JOIN dependente d ON (f.cpf = d.cpf_funcionario);
 -- --------- --
 
 SELECT DISTINCT 
- CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome)                AS nome_completo_funcionario
-, f. numero_departamento                                              AS departamento
+ CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome) AS nome_completo_funcionario
+, f. numero_departamento                               AS departamento
 , salario
 FROM funcionario           f
 LEFT OUTER JOIN dependente d ON (f.cpf = d.cpf_funcionario)
@@ -124,10 +124,10 @@ WHERE cpf_funcionario IS NULL;
 -- --------- --
 
 SELECT 
-  f.numero_departamento                                      AS departamento
+  f.numero_departamento                                 AS departamento
 , nome_projeto
-, CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome)      AS nome_completo_funcionario
-, SUM(horas)                                                 AS horas_por_projeto -- decidi realizar a somatoria para a tabela ficar mais legivel
+, CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome) AS nome_completo_funcionario
+, SUM(horas)                                            AS horas_por_projeto -- decidi realizar a somatoria para a tabela ficar mais legivel
 FROM funcionario       f
 INNER JOIN trabalha_em t ON (f.cpf = t.cpf_funcionario)
 INNER JOIN projeto     p ON (p.numero_projeto = t.numero_projeto)
@@ -167,9 +167,9 @@ ORDER BY nome_departamento; -- novamente nao era obrigatorio organizar por ordem
 -- ---------- --
 
 SELECT DISTINCT 
-  CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome)               AS nome_completo_funcionario
+  CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome) AS nome_completo_funcionario
 , nome_projeto
-, SUM(horas * 50)                                                     AS valor_total
+, SUM(horas * 50)                                       AS valor_total
 FROM funcionario       f
 INNER JOIN projeto     p   ON (f.numero_departamento = p.numero_departamento)
 INNER JOIN trabalha_em t   ON (p.numero_projeto = t.numero_projeto)
@@ -220,8 +220,8 @@ ORDER BY idade DESC;
 -- ---------- --
 
 SELECT 
-  nome_departamento      AS departamento -- Optei colocar o nome do departamento para o relatorio ficar mais legivel.
-, COUNT(cpf)             AS numero_de_funcionarios
+  nome_departamento AS departamento -- Optei colocar o nome do departamento para o relatorio ficar mais legivel.
+, COUNT(cpf)        AS numero_de_funcionarios
 FROM funcionario        f
 INNER JOIN departamento dp ON (f.numero_departamento = dp.numero_departamento)
 GROUP BY nome_departamento;
@@ -233,9 +233,9 @@ GROUP BY nome_departamento;
 -- ---------- --
 
 SELECT 
-  CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome)       AS nome_completo_funcionario
-, f.numero_departamento                                       AS departamento
-, nome_projeto                                                AS nome_projeto_alocado
+  CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome) AS nome_completo_funcionario
+, f.numero_departamento                                 AS departamento
+, nome_projeto                                          AS nome_projeto_alocado
 FROM funcionario        f
 LEFT OUTER JOIN projeto p ON (f.numero_departamento = p.numero_departamento) -- Por mais que todos os funcionarios neste esquema trabalhem em exemplos, foi pedido para incluir ate os funcionarios que nao trabalhassem, entao usei LEFT OUTER JOIN.
 ORDER BY nome_completo_funcionario; -- Nao foi requerido mas ordenei assim para que ficasse mais organizado.
