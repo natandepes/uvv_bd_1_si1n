@@ -46,9 +46,10 @@ ORDER BY nome_departamento; -- Nao foi requerido mas ordenei assim para que fica
    CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome)                AS nome_completo_funcionario
  , DATE_PART('year', CURRENT_DATE) - DATE_PART('year', data_nascimento) AS idade
  , salario                                                              AS salario_atual
- , CASE  WHEN salario < 35000 THEN salario + salario * 20/100
+ , CASE  
+          WHEN salario < 35000 THEN salario + salario * 20/100
           WHEN salario >= 35000 THEN salario + salario * 15/100
-END                                                                     AS salario_reajuste
+   END                                                                  AS salario_reajuste
 FROM  funcionario;
 
 
@@ -59,9 +60,10 @@ FROM  funcionario;
 SELECT 
   nome_departamento,
   
-  CASE WHEN dp.numero_departamento = 1 THEN 'Jorge'
-     WHEN dp.numero_departamento = 4 THEN 'Jennifer'
-     WHEN dp.numero_departamento = 5 Then 'Fernando'
+  CASE 
+       WHEN dp.numero_departamento = 1 THEN 'Jorge'
+       WHEN dp.numero_departamento = 4 THEN 'Jennifer'
+       WHEN dp.numero_departamento = 5 THEN 'Fernando'
   END             AS nome_gerente
  
 , primeiro_nome   AS nome_funcionario
@@ -81,7 +83,8 @@ SELECT
 , CONCAT(nome_dependente, ' ', ultimo_nome)                              AS nome_completo_dependente
 , DATE_PART('year', CURRENT_DATE) - DATE_PART('year', d.data_nascimento) AS idade_dependente
 
-, CASE WHEN d.sexo = 'M' THEN 'Masculino'
+, CASE 
+       WHEN d.sexo = 'M' THEN 'Masculino'
        WHEN d.sexo = 'F' THEN 'Feminino'
   END                                                                    AS sexo_dependente
 FROM funcionario      f
