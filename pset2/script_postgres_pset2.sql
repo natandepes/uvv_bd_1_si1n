@@ -3,8 +3,9 @@
 -- acaso acontecer qualquer tipo de erro em relacao as queries, insisto para que tente executa-las pelo PostgreSQL. Obrigado.                                            --                                                     --
 -- --------------------------------------------------------------------------------------------------------------------------------------------------------------------- --
 
-
--- Questao 1
+-- --------- --
+-- QUESTAO 1 --
+-- --------- --
 
 SELECT 
   numero_departamento      AS departamento
@@ -15,7 +16,9 @@ GROUP BY numero_departamento;
 
 
 
--- Questao 2
+-- --------- --
+-- QUESTAO 2 --
+-- --------- --
 
 SELECT 
   sexo
@@ -26,7 +29,9 @@ GROUP BY sexo;
 
 
 
--- Questao 3
+-- --------- --
+-- QUESTAO 3 --
+-- --------- --
 
 SELECT 
   nome_departamento
@@ -40,7 +45,9 @@ ORDER BY nome_departamento; -- Nao foi requerido mas ordenei assim para que fica
 
 
 
--- Questao 4
+-- --------- --
+-- QUESTAO 4 --
+-- --------- --
 
  SELECT 
    CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome)                AS nome_completo_funcionario
@@ -55,7 +62,9 @@ FROM  funcionario;
 
 
 
--- Questao 5
+-- --------- --
+-- QUESTAO 5 --
+-- --------- --
 
 SELECT 
   nome_departamento,
@@ -75,7 +84,9 @@ ORDER BY nome_departamento ASC, salario DESC;
 
 
 
--- Questao 6
+-- --------- --
+-- QUESTAO 6 --
+-- --------- --
 
 SELECT 
   CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome)                  AS nome_completo_funcionario
@@ -93,7 +104,9 @@ INNER JOIN dependente d ON (f.cpf = d.cpf_funcionario);
 
 
 
--- Questao 7
+-- --------- --
+-- QUESTAO 7 --
+-- --------- --
 
 SELECT DISTINCT 
  CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome)                AS nome_completo_funcionario
@@ -106,7 +119,9 @@ WHERE cpf_funcionario IS NULL;
 
 
 
--- Questao 8
+-- --------- --
+-- QUESTAO 8 --
+-- --------- --
 
 SELECT 
   f.numero_departamento                                      AS departamento
@@ -123,7 +138,9 @@ ORDER BY nome_completo_funcionario;
 
 
 
--- Questao 9
+-- --------- --
+-- QUESTAO 9 --
+-- --------- --
 
 SELECT 
   nome_departamento
@@ -145,7 +162,9 @@ ORDER BY nome_departamento; -- novamente nao era obrigatorio organizar por ordem
 
 
 
--- Questao 11
+-- ---------- --
+-- QUESTAO 11 --
+-- ---------- --
 
 SELECT DISTINCT 
   CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome)               AS nome_completo_funcionario
@@ -160,7 +179,9 @@ ORDER BY nome_completo_funcionario;
 
 
 
--- Questao 12
+-- ---------- --
+-- QUESTAO 12 --
+-- ---------- --
 
 SELECT 
   nome_departamento
@@ -174,7 +195,9 @@ WHERE t.horas IS NULL OR t.horas = 0;
 
 
 
--- Questao 13
+-- ---------- --
+-- QUESTAO 13 --
+-- ---------- --
 
 SELECT 
   CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome)                AS nome_completo_pessoa
@@ -192,7 +215,9 @@ ORDER BY idade DESC;
 
 
 
--- Questao 14
+-- ---------- --
+-- QUESTAO 14 --
+-- ---------- --
 
 SELECT 
   nome_departamento      AS departamento -- Optei colocar o nome do departamento para o relatorio ficar mais legivel.
@@ -203,7 +228,9 @@ GROUP BY nome_departamento;
 
 
 
--- Questao 15
+-- ---------- --
+-- QUESTAO 15 --
+-- ---------- --
 
 SELECT 
   CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome)       AS nome_completo_funcionario
