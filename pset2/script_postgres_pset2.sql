@@ -1,7 +1,7 @@
--- --------------------------------------------------------------------------------------------------------------------------------------------------------------------- -- 
--- Fui orientado que a SQL se mantem universal para qualquer SGBD, porem em caso de algum problema, todas essas queries foram testadas e revisadas no PostgreSQL, se por --
--- acaso acontecer qualquer tipo de erro em relacao as queries, insisto para que tente executa-las pelo PostgreSQL. Obrigado.                                            --                                                     --
--- --------------------------------------------------------------------------------------------------------------------------------------------------------------------- --
+-- -------------------------------------------------------------------------------------------------------------------------------------- --
+-- A SQL se mantem praticamente universal para qualquer SGBD, porem, todas essas queries foram testadas e revisadas no PostgreSQL, se por --
+-- acaso acontecer qualquer tipo de erro em relacao as queries, insisto para que tente executa-las pelo PostgreSQL. Obrigado.             --                                                     
+-- -------------------------------------------------------------------------------------------------------------------------------------- --
 
 -- --------- --
 -- QUESTAO 1 --
@@ -54,8 +54,8 @@ ORDER BY nome_departamento; -- Nao foi requerido mas ordenei assim para que fica
  , DATE_PART('year', CURRENT_DATE) - DATE_PART('year', data_nascimento) AS idade
  , salario                                                              AS salario_atual
  , CASE  
-          WHEN salario < 35000 THEN salario + salario * 20/100
-          WHEN salario >= 35000 THEN salario + salario * 15/100
+        WHEN salario < 35000 THEN salario + salario * 20/100
+        WHEN salario >= 35000 THEN salario + salario * 15/100
    END                                                                  AS salario_reajuste
 FROM  funcionario;
 
