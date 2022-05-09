@@ -75,7 +75,7 @@ SELECT
         WHEN dp.numero_departamento = 1 THEN 'Jorge'
         WHEN dp.numero_departamento = 4 THEN 'Jennifer'
         WHEN dp.numero_departamento = 5 THEN 'Fernando'
-   END           AS gerente
+    END          AS gerente
  
 , primeiro_nome  AS funcionario
 , salario        AS salario_funcionario
