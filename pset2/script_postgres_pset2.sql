@@ -189,7 +189,7 @@ SELECT
 , primeiro_nome AS nome_funcionario
 FROM projeto            p
 INNER JOIN departamento dp ON (p.numero_departamento = dp.numero_departamento)
-INNER JOIN funcionario  f  ON (p.numero_departamento = f.numero_departamento)
+INNER JOIN funcionario  f  ON (dp.numero_departamento = f.numero_departamento)
 INNER JOIN trabalha_em  t  ON (p.numero_projeto = t.numero_projeto)
 WHERE t.horas IS NULL OR t.horas = 0;
 
@@ -236,6 +236,7 @@ SELECT
   CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome) AS nome_completo_funcionario
 , f.numero_departamento                                 AS departamento
 , nome_projeto                                          AS nome_projeto_alocado
-FROM funcionario        f
-LEFT OUTER JOIN projeto p ON (f.numero_departamento = p.numero_departamento) -- Por mais que todos os funcionarios neste esquema trabalhem em exemplos, foi pedido para incluir ate os funcionarios que nao trabalhassem, entao usei LEFT OUTER JOIN.
-ORDER BY nome_completo_funcionario; -- Nao foi requerido mas ordenei assim para que ficasse mais organizado.
+FROM funcionario         f
+ INNER JOIN departamento dp ON (f.numero_departamento = dp.numero_departamento)
+  LEFT OUTER JOIN projeto p ON (dp.numero_departamento = p.numero_departamento) -- Por mais que todos os funcionarios neste esquema trabalhem em exemplos, foi pedido para incluir ate os funcionarios que nao trabalhassem, entao usei LEFT OUTER JOIN.
+  ORDER BY nome_completo_funcionario; -- Nao foi requerido mas ordenei assim para que ficasse mais organizado.
