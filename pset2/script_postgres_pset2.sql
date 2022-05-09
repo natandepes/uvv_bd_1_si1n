@@ -53,10 +53,12 @@ ORDER BY departamento; -- Nao foi requerido mas ordenei assim para que ficasse m
    CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome)                AS funcionario
  , DATE_PART('year', CURRENT_DATE) - DATE_PART('year', data_nascimento) AS idade
  , salario                                                              AS salario_atual
+ 
  , CASE  
         WHEN salario < 35000 THEN salario + salario * 20/100
         WHEN salario >= 35000 THEN salario + salario * 15/100
    END                                                                  AS salario_reajuste
+
 FROM  funcionario;
 
 
@@ -67,16 +69,16 @@ FROM  funcionario;
 -- --------- --
 
 SELECT 
-  nome_departamento,
+  nome_departamento
   
-  CASE 
-       WHEN dp.numero_departamento = 1 THEN 'Jorge'
-       WHEN dp.numero_departamento = 4 THEN 'Jennifer'
-       WHEN dp.numero_departamento = 5 THEN 'Fernando'
-  END             AS gerente
+  , CASE 
+        WHEN dp.numero_departamento = 1 THEN 'Jorge'
+        WHEN dp.numero_departamento = 4 THEN 'Jennifer'
+        WHEN dp.numero_departamento = 5 THEN 'Fernando'
+   END           AS gerente
  
-, primeiro_nome   AS funcionario
-, salario         AS salario_funcionario
+, primeiro_nome  AS funcionario
+, salario        AS salario_funcionario
 FROM departamento      dp
 INNER JOIN funcionario f ON (f.numero_departamento = dp.numero_departamento)
 ORDER BY nome_departamento ASC, salario DESC;
