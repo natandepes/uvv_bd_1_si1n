@@ -1,3 +1,6 @@
+DROP DATABASE IF EXISTS uvv; -- Inserindo um comando para deletar o banco de dados com o mesmo nome que eu irei criar, caso exista.
+DROP USER IF EXISTS natan;   -- Inserindo um comando para deletar o usuario com o mesmo nome que eu irei criar, caso exista.
+
 CREATE USER natan WITH  -- Criando meu user.
   LOGIN -- Direito a login
   NOSUPERUSER -- Sem poderes de superusuario.
