@@ -1,3 +1,20 @@
+DROP USER natan; -- Deletando o user natan caso ja exista.
+DROP DATABASE uvv; -- Deletando o banco de dados uvv caso ja exista.
+
+CREATE USER natan IDENTIFIED BY 'maclmera';  -- Criando o usuario natan e colocando a senha de maclmera.
+
+GRANT CREATE, ALTER, DROP, REFERENCES, DELETE, UPDATE, INDEX, INSERT, SELECT ON uvv.* TO natan; -- Garantindo para o meu usuario os privilegios de criar, deletar, referenciar, atualizar, inserir e projetar no em todo o banco de dados uvv.
+
+-- Conectando ao MySQL como o user natan.
+system mysql -u natan -pmaclmera
+
+-- Criando o banco de dados uvv, onde eu implementarei o esquema do elmasri.
+
+CREATE DATABASE uvv;
+
+-- Escolhendo o banco de dados uvv para implementar os dados.
+
+USE uvv;
 -- Criando o banco de dados uvv, onde eu implementarei o esquema do elmasri.
 
 CREATE DATABASE uvv;
