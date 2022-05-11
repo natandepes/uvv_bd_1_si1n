@@ -1,3 +1,31 @@
+CREATE USER natan WITH  -- Criando meu user.
+  LOGIN -- Direito a login
+  NOSUPERUSER -- Sem poderes de superusuario.
+  INHERIT -- Alguma interacao de criacao de tabelas que eu nao compreendi muito bem, mas decidi integrar no meu user.
+  CREATEDB -- Direito a criar bancos de dados.
+  CREATEROLE -- Direito a criar roles. 
+  REPLICATION -- Direito a transferir dados entre bancos de dados.
+  ENCRYPTED PASSWORD 'maclmera';
+
+-- Criando o banco de dados uvv.
+
+CREATE DATABASE uvv 
+WITH OWNER = natan  -- Meu user tem como dono.
+TEMPLATE = template0 
+ENCODING = 'UTF8' 
+LC_COLLATE = 'pt_BR.UTF-8' 
+LC_CTYPE = 'pt_BR.UTF-8'
+ALLOW_CONNECTIONS = true;
+
+-- Colocando o path do meu usuario para o esquema elmasri.
+
+ALTER USER natan
+SET SEARCH_PATH TO elmasri, "$user", public;
+
+-- Me conectando no banco de dados uvv, com meu usuario.
+
+\c "dbname=uvv user=natan password=maclmera"
+
 -- Criando o esquema elmasri, que ficara dentro do banco de dados uvv.
 
 CREATE SCHEMA elmasri     -- Criando o esquema elmasri aonde ficarao alocadas minhas tabelas.
