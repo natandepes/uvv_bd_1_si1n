@@ -276,5 +276,5 @@ SELECT
 , nome_projeto                                          AS projeto_alocado
 FROM funcionario         f
  INNER JOIN departamento dp ON (f.numero_departamento = dp.numero_departamento)
-  LEFT OUTER JOIN projeto p ON (dp.numero_departamento = p.numero_departamento) -- Por mais que todos os funcionarios neste esquema trabalhem em exemplos, foi pedido para incluir ate os funcionarios que nao trabalhassem, entao usei LEFT OUTER JOIN.
+  LEFT OUTER JOIN projeto p ON (dp.numero_departamento = p.numero_departamento) -- Por mais que todos os funcionarios neste esquema trabalhem em projetos, foi pedido para incluir ate os funcionarios que nao trabalhassem, entao usei LEFT OUTER JOIN.
   ORDER BY funcionario; -- Nao foi requerido mas ordenei assim para que ficasse mais organizado.
