@@ -157,9 +157,11 @@ ORDER BY funcionario;
 
 
 
--- --------- --
--- QUESTAO 9 --
--- --------- --
+-- ----------------------------------------------------------------------------------- --
+-- QUESTÃO 09: prepare um relatório que mostre a soma total das horas de cada          --
+-- projeto em cada departamento. Obs.: o relatório deve exibir o nome do departamento, --
+-- o nome do projeto e a soma total das horas.                                         --
+-- ----------------------------------------------------------------------------------- --
 
 SELECT 
   nome_departamento AS departamento
@@ -181,9 +183,12 @@ ORDER BY departamento; -- novamente nao era obrigatorio organizar por ordem mas 
 
 
 
--- ---------- --
--- QUESTAO 11 --
--- ---------- --
+-- ------------------------------------------------------------------------------- --
+-- QUESTÃO 11: considerando que o valor pago por hora trabalhada em um projeto     --
+-- é de 50 reais, prepare um relatório que mostre o nome completo do funcionário,  --
+-- o nome do projeto e o valor total que o funcionário receberá referente às horas --
+-- trabalhadas naquele projeto.                                                    --
+-- ------------------------------------------------------------------------------- --
 
 SELECT DISTINCT 
   CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome) AS funcionario
@@ -244,9 +249,9 @@ ORDER BY idade DESC;
 
 
 
--- ---------- --
--- QUESTAO 14 --
--- ---------- --
+-- -------------------------------------------------------------------------------------- --
+-- QUESTÃO 14: prepare um relatório que exiba quantos funcionários cada departamento tem. --
+-- -------------------------------------------------------------------------------------- --
 
 SELECT 
   nome_departamento AS departamento -- Optei colocar o nome do departamento para o relatorio ficar mais legivel.
