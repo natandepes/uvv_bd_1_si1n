@@ -3,9 +3,11 @@
 -- acaso acontecer qualquer tipo de erro em relacao as queries, insisto para que tente executa-las pelo PostgreSQL. Obrigado.             --                                                     
 -- -------------------------------------------------------------------------------------------------------------------------------------- --
 
--- --------- --
--- QUESTAO 1 --
--- --------- --
+-- ----------------------------------------------------------------------------- --
+-- QUESTÃO 01: prepare um relatório que mostre a média salarial dos funcionários --
+-- de cada departamento.                                                         --
+-- ----------------------------------------------------------------------------- --
+ 
 
 SELECT 
   numero_departamento AS departamento
@@ -16,9 +18,10 @@ GROUP BY numero_departamento;
 
 
 
--- --------- --
--- QUESTAO 2 --
--- --------- --
+-- ----------------------------------------------------------------------------- --
+-- QUESTÃO 02: prepare um relatório que mostre a média salarial dos homens e das --
+-- mulheres.                                                                     --
+-- ----------------------------------------------------------------------------- --
 
 SELECT 
   sexo
@@ -29,9 +32,11 @@ GROUP BY sexo;
 
 
 
--- --------- --
--- QUESTAO 3 --
--- --------- --
+-- ------------------------------------------------------------------------------- --
+-- QUESTÃO 03: prepare um relatório que liste o nome dos departamentos e, para     --
+-- cada departamento, inclua as seguintes informações de seus funcionários: o nome --
+-- completo, a data de nascimento, a idade em anos completos e o salário.          --
+-- ------------------------------------------------------------------------------- --
 
 SELECT 
   nome_departamento                                                                     AS departamento
@@ -45,9 +50,11 @@ ORDER BY departamento; -- Nao foi requerido mas ordenei assim para que ficasse m
 
 
 
--- --------- --
--- QUESTAO 4 --
--- --------- --
+-- ------------------------------------------------------------------------------------------------------------------------------------ --
+-- QUESTÃO 04: prepare um relatório que mostre o nome completo dos funcionários, a idade em anos completos, o salário atual e o salário --
+-- com um reajuste que obedece ao seguinte critério: se o salário atual do funcionário é inferior a 35.000 o                            --                                 
+-- reajuste deve ser de 20%, e se o salário atual do funcionário for igual ou superior a 35.000 o reajuste deve ser de 15%.             --                                                                                                                                                       
+-- ------------------------------------------------------------------------------------------------------------------------------------ --
 
  SELECT 
    CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome)                AS funcionario
@@ -64,9 +71,11 @@ FROM  funcionario;
 
 
 
--- --------- --
--- QUESTAO 5 --
--- --------- --
+-- ------------------------------------------------------------------------------------ --
+-- QUESTÃO 05: prepare um relatório que liste, para cada departamento, o nome           --
+-- do gerente e o nome dos funcionários. Ordene esse relatório por nome do departamento --
+-- (em ordem crescente) e por salário dos funcionários (em ordem decrescente).          --
+-- ------------------------------------------------------------------------------------ --
 
 SELECT 
   nome_departamento AS departamento
@@ -86,9 +95,13 @@ ORDER BY nome_departamento ASC, salario DESC;
 
 
 
--- --------- --
--- QUESTAO 6 --
--- --------- --
+-- --------------------------------------------------------------------------------- --
+-- QUESTÃO 06: prepare um relatório que mostre o nome completo dos funcionários      --
+-- que têm dependentes, o departamento onde eles trabalham e, para cada funcionário, --
+-- também liste o nome completo dos dependentes, a idade em anos de cada             --
+-- dependente e o sexo (o sexo NÃO DEVE aparecer como M ou F, deve aparecer          --
+-- como “Masculino” ou “Feminino”).                                                  --
+-- --------------------------------------------------------------------------------- --
 
 SELECT 
   CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome)                  AS funcionario
@@ -106,9 +119,10 @@ INNER JOIN dependente d ON (f.cpf = d.cpf_funcionario);
 
 
 
--- --------- --
--- QUESTAO 7 --
--- --------- --
+-- -------------------------------------------------------------------------- --
+-- QUESTÃO 07: prepare um relatório que mostre, para cada funcionário que NÃO --
+-- TEM dependente, seu nome completo, departamento e salário.                 --
+-- -------------------------------------------------------------------------- --
 
 SELECT DISTINCT 
  CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome) AS funcionario
@@ -121,9 +135,12 @@ WHERE cpf_funcionario IS NULL;
 
 
 
--- --------- --
--- QUESTAO 8 --
--- --------- --
+-- -------------------------------------------------------------------------------- --
+-- QUESTÃO 08: prepare um relatório que mostre, para cada departamento, os projetos -- 
+-- desse departamento e o nome completo dos funcionários que estão alocados         --
+-- em cada projeto. Além disso inclua o número de horas trabalhadas por             --
+-- cada funcionário, em cada projeto.                                               --
+-- -------------------------------------------------------------------------------- --
 
 SELECT 
   f.numero_departamento                                 AS departamento
@@ -181,9 +198,13 @@ ORDER BY funcionario;
 
 
 
--- ---------- --
--- QUESTAO 12 --
--- ---------- --
+-- ------------------------------------------------------------------------------------- --
+-- QUESTÃO 12: seu chefe está verificando as horas trabalhadas pelos funcionários        --
+-- nos projetos e percebeu que alguns funcionários, mesmo estando alocadas à algum       --
+-- projeto, não registraram nenhuma hora trabalhada. Sua tarefa é preparar um relatório  -- 
+-- que liste o nome do departamento, o nome do projeto e o nome dos funcionários         --
+-- que, mesmo estando alocados a algum projeto, não registraram nenhuma hora trabalhada. --
+-- ------------------------------------------------------------------------------------- --
 
 SELECT 
   nome_departamento AS departamento
@@ -197,9 +218,15 @@ WHERE t.horas IS NULL OR t.horas = 0;
 
 
 
--- ---------- --
--- QUESTAO 13 --
--- ---------- --
+-- ------------------------------------------------------------------------------------ --
+-- QUESTÃO 13: durante o natal deste ano a empresa irá presentear todos os funcionários --
+-- e todos os dependentes (sim, a empresa vai dar um presente para cada                 --
+-- funcionário e um presente para cada dependente de cada funcionário) e pediu para     --
+-- que você preparasse um relatório que listasse o nome completo das pessoas a serem    --
+-- presenteadas (funcionários e dependentes), o sexo e a idade em anos completos        --
+-- (para poder comprar um presente adequado). Esse relatório deve estar ordenado        -- 
+-- pela idade em anos completos, de forma decrescente.                                  --
+-- ------------------------------------------------------------------------------------ --
 
 SELECT 
   CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome)                AS pessoa
@@ -230,9 +257,13 @@ GROUP BY nome_departamento;
 
 
 
--- ---------- --
--- QUESTAO 15 --
--- ---------- --
+-- ----------------------------------------------------------------------------- --
+-- QUESTÃO 15: como um funcionário pode estar alocado em mais de um projeto,     --
+-- prepare um relatório que exiba o nome completo do funcionário, o departamento --
+-- desse funcionário e o nome dos projetos em que cada funcionário está alocado. --
+-- Atenção: se houver algum funcionário que não está alocado em nenhum projeto,  --
+-- o nome completo e o departamento também devem aparecer no relatório.          --
+-- ----------------------------------------------------------------------------- --
 
 SELECT 
   CONCAT(primeiro_nome,' ', nome_meio,' ', ultimo_nome) AS funcionario
