@@ -15,13 +15,6 @@ CREATE DATABASE uvv;
 -- Escolhendo o banco de dados uvv para implementar os dados.
 
 USE uvv;
--- Criando o banco de dados uvv, onde eu implementarei o esquema do elmasri.
-
-CREATE DATABASE uvv;
-
--- Escolhendo o banco de dados uvv para implementar os dados.
-
-USE uvv;
 
 -- Criando a tabela funcionario.
 
